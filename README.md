@@ -1,7 +1,8 @@
+![image](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/assets/33912144/314d543d-028c-4377-b765-2801c4e64923)
 
 ### Herkese Merhabalar !
 
-Cumhuriyet'in 100. Yılında Kadınlara Özel Back-End .Net Bootcamp kapsamında verilecek eğitimin notlarını, uygulamalarını buradan paylaşıyor olacağım. :)
+Techcareer.net'in düzenlediği Cumhuriyet'in 100. Yılında Kadınlara Özel Back-End .Net Bootcamp kapsamında verilecek eğitimin notlarını, uygulamalarını buradan paylaşıyor olacağım. :)
 
 
 -> Ders notlarına aşağıdaki yönlendirmelerden ulaşabilirsiniz.
@@ -14,4 +15,3 @@ Cumhuriyet'in 100. Yılında Kadınlara Özel Back-End .Net Bootcamp kapsamında
 
 
 ![image](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/assets/33912144/13f9a7d9-179d-4dc4-a9c6-d39e66a145f9)
-![image](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/assets/33912144/314d543d-028c-4377-b765-2801c4e64923)
