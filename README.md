@@ -6,9 +6,12 @@ Cumhuriyet'in 100. Yılında Kadınlara Özel Back-End .Net Bootcamp kapsamında
 
 -> Ders notlarına aşağıdaki yönlendirmelerden ulaşabilirsiniz.
 
-1. [Ben Kimim?](https://github.com/KardelRuveyda/sektor-kampuste-sanayi-bakanligi/blob/master/ben-kimim.md)
-2. [Modern Web Geliştirme- Notlar 3-Versiyon Kontrol Sistemleri-Git](https://github.com/KardelRuveyda/sektor-kampuste-sanayi-bakanligi/blob/master/modern-web-gelistirme-3.md)
-3. [Modern Web Geliştirme- Notlar 4-Veri Tabanı Temelleri](https://github.com/KardelRuveyda/sektor-kampuste-sanayi-bakanligi/blob/master/modern-web-gelistirme-4.md)
+1. [Ben Kimim?](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/blob/master/ben-kimim.md)
+2. [Eğitim Yol Haritası?](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/blob/master/roadmap.md)
+3. [Git Versiyon Kontrol Sistemi Temelleri](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/blob/master/git-101.md)
+4. [C# Temelleri 1](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/blob/master/csharp-101.md)
+5. [C# Temelleri 2](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/blob/master/csharp-102.md)
 
 
 ![image](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/assets/33912144/13f9a7d9-179d-4dc4-a9c6-d39e66a145f9)
+![image](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/assets/33912144/314d543d-028c-4377-b765-2801c4e64923)
