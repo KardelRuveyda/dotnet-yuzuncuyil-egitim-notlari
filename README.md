@@ -6,6 +6,14 @@ Techcareer.net'in düzenlediği Cumhuriyet'in 100. Yılında Kadınlara Özel Ba
 
 -> Ders notlarına aşağıdaki yönlendirmelerden ulaşabilirsiniz.
 
+1. [Ben Kimim?](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/blob/master/ben-kimim.md)
+2. [Eğitim Yol Haritası](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/blob/master/roadmap.md)
+3. [Git Versiyon Kontrol Sistemi Temelleri](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/blob/master/git-101.md)
+4. [C# Temelleri 1](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/blob/master/csharp-101.md)
+5. [C# Temelleri 2](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/blob/master/csharp-102.md)
+6. [Alıştırmalar](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/blob/master/alistirmalar.md)
+
+
 - [x] [Ben Kimim?](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/blob/master/ben-kimim.md)
 - [x] [Eğitim Yol Haritası](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/blob/master/roadmap.md)
 - [x] [Git Versiyon Kontrol Sistemi Temelleri](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/blob/master/git-101.md)
