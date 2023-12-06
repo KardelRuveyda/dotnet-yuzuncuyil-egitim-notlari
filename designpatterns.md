@@ -69,12 +69,17 @@ Factory tasarım deseni (Fabrika tasarım deseni), bir nesnenin oluşturulma sü
 - **Creator (Creator):** Ürünlerin oluşturulması için soyut bir metot veya arayüz içerir. Bu sınıfın alt sınıfları, ürün nesnesinin türüne göre nesne oluşturmayı gerçekleştirir.
 - **ConcreateCreator:** Creator sınıfını uygulayan ve belirli bir ürün türü için nesne oluşturan sınıftır.
 
+### Abstract Factory Tasarım Deseni Hakkında
+Abstract Factory tasarım deseni, creational (yaratımsal) tasarım desenlerinden biridir. Bu desen, birbirine bağlı ve birlikte çalışan nesneler ailesini oluşturmak için kullanılır. Abstract Factory, bir nesne setinin somut uygulamalarını belirtmekten ziyade, bu nesnelerin oluşturulması için bir arayüz sağlar.
+
+Bu tasarım deseni, bir sistemde kullanılacak nesnelerin birbiriyle uyumlu ve bir aile içinde olduğu durumları ele alır. Bu sayede, bir aile içindeki nesneleri değiştirmek veya yeni bir aile eklemek daha kolaydır, çünkü bu değişiklikler sadece abstract factory arayüzü ve onu uygulayan sınıfları etkiler.
+
 ### Prototype Tasarım Deseni Hakkında
 
 - Amacımız nesne üretim maliyetlerini minimize etmektir. Her zaman kullanılması mümkün değildir, ihtiyaç dahilinde kullanabiliriz. Elimizdeki nesneyi kullanarak onun klonlarını oluşturabiliyoruz. Prototype tasarım deseni, creational tasarım desenlerinden biridir ve nesnelerin kopyalanmasını sağlamayı amaçlar. Bu desen, bir nesnenin prototipini kullanarak yeni nesneler oluşturmanın bir yolunu tanımlar. Yeni nesneler, mevcut bir nesnenin kopyası alınarak oluşturulur, bu da yeni nesnelerin özelliklerini veya durumlarını başlangıç nesnesinden alacakları anlamına gelir.
 
 - Prototype tasarım deseni, özellikle nesne oluşturma maliyeti yüksek veya karmaşık olan durumlarda kullanışlıdır. Bu desen, sınıflar arasındaki bağımlılıkları azaltabilir ve nesnelerin daha dinamik bir şekilde oluşturulmasına olanak tanır.
 
-### Builder Tasarım Deseni Hakkında
+### Dependency Injection Tasarım Deseni Hakkında
 
-Genellikle ortaya bir nesne ortaya çıkarmayı hedefler. Nesne örneği birbiri arkasına atılacak adımların sırasıyla işlenmeisyle ortaya çıkar. Genellike biz bunları iş katmanlarında veya arayüz katmanlarında ifle yazmak yerine ilgili üreticinin enkejte edilmesi ve ortaya bir nesnenin çıkarılması şeklinde uygulanır. Buuilder Design Pattern'i internet örneklerinde hamburger üretimine benzetilebilir. Hamburger bir nesneyse vejeteryanlar için bir hamburger veya vejetaryan olmayanlar için üretilecek hamburgerde belirli bir sırayla oluşmasını ve ortaya çıkmasını sağlayan bir yapıdır. 
+Dependency Injection (Bağımlılık Enjeksiyonu) tasarım deseni, yazılım bileşenleri arasındaki bağımlılıkları azaltmayı ve kodun daha test edilebilir, esnek ve bakımı daha kolay hale getirmeyi amaçlar. Bağımlılık Enjeksiyonu, genellikle bir sınıfa gerekli bağımlılıkları (başka sınıflar, servisler veya arayüzler gibi) dışarıdan verme işlemidir.
