@@ -64,9 +64,9 @@ Interface Segregation Principle" (ISP), SOLID prensiplerinden biridir ve arayüz
 
 Örneğin, bir arabayla ilgili bir arayüzde "Uçak Modu" gibi uygulanması gereksiz veya kullanılmayacak metotlar varsa, bu arayüzü implemente eden araba sınıfları için bu metotlar anlamsız olacaktır. Bu durum, ISP'nin ihlali olarak kabul edilebilir ve bu tür durumlar kaçınılmalıdır. Sınıflar, ihtiyaçlarına uygun ve anlamlı metotları içeren arayüzleri uygulayarak bu prensibi takip etmelidir.
 
-![Resim 3](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/assets/33912144/af1bfe69-7e93-4bb6-8a13-597e8e9438f4) | ![Resim 4](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/assets/33912144/30a69435-f63c-4760-bdc3-4ff2bb77c318)
+![Resim 3](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/assets/33912144/af1bfe69-7e93-4bb6-8a13-597e8e9438f4) | ![Resim 4](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/assets/33912144/5a823a2a-6acf-4393-8661-16eac1c030d8)
 :-------------------------:|:-------------------------:
-Open Closed            | Bertrand Meyer
+Interface Segregation        | Interface Segregation
 
 ### Dependency Inversion Prensibi
 
