@@ -1,6 +1,8 @@
 ﻿CustomerManager customerManager = new CustomerManager(new Factory1());
 customerManager.GetAll();
 
+
+#region Farklı Loggin İşlemleri
 public abstract class Logging
 {
     public abstract void Log(string message);
@@ -21,6 +23,10 @@ public class ElasticLogger : Logging
         Console.WriteLine("Logging with ElasticLogger.");
     }
 }
+
+#endregion
+
+#region Farklı Caching İşlemleri
 
 public abstract class Caching
 {
@@ -43,13 +49,16 @@ public class RedisCache : Caching
     }
 }
 
+#endregion
+
+#region İki fabrikanın Ortak Abstract'ı
 public abstract class AbstractFactory1
 {
     public abstract Logging CreateLogger();
     public abstract Caching CreateCaching();
 }
-
-//İlk Fabrika
+#endregion
+#region Birinci Fabrikanın Oluşturulması
 public class Factory1 : AbstractFactory1
 {
     public override Caching CreateCaching()
@@ -62,7 +71,9 @@ public class Factory1 : AbstractFactory1
         return new Log4NetLogger();
     }
 }
+#endregion
 
+#region İkinci Fabrikanın Oluşturulması
 //İkinci Fabrika
 public class Factory2 : AbstractFactory1
 {
@@ -76,7 +87,9 @@ public class Factory2 : AbstractFactory1
         return new ElasticLogger();
     }
 }
+#endregion
 
+#region Client İş katmanı
 //Client Tarafı İş Katmanı
 public class CustomerManager
 {
@@ -98,4 +111,4 @@ public class CustomerManager
         Console.WriteLine("Üürnler listelendi.");
     }
 }
-
+#endregion
