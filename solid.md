@@ -15,8 +15,7 @@
 Örneğin, bir sınıfın hem veritabanı işlemlerini yönetmesi hem de kullanıcı arayüzü işlemlerini gerçekleştirmesi durumunda, bu sınıf SRP'ye uymuyor demektir. İdeal olarak, bu sorumluluklar iki ayrı sınıfa ayrılmalıdır.
 
 
-
-![Resim 1](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/assets/33912144/e4ea7f32-5b1d-4e67-af51-933074f13f7c) | ![Resim 2](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/assets/33912144/e4ea7f32-5b1d-4e67-af51-933074f13f7c)
+![Resim 1](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/assets/33912144/e4ea7f32-5b1d-4e67-af51-933074f13f7c) | ![Resim 2](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/assets/33912144/f540793c-b2f4-4435-8a9f-2235212116b5)
 :-------------------------:|:-------------------------:
 Single Responsibility              | Robert C. Martin
 
@@ -32,8 +31,9 @@ Single Responsibility              | Robert C. Martin
 **3. Daha Yüksek Uyum Sağlama:** OCP, birimlerin daha iyi bir şekilde uyum sağlamasını sağlar. Yeni özellikler eklemek, mevcut kodu değiştirmeksizin gerçekleştirilebileceği için, yazılım birimleri daha esnek ve yeniden kullanılabilir olabilir.
 
 OCP, diğer SOLID prensipleriyle birlikte kullanıldığında, daha modüler, sürdürülebilir ve esnek yazılım tasarımları elde etmeye yardımcı olabilir.
+![image](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/assets/33912144/30a69435-f63c-4760-bdc3-4ff2bb77c318)
 
-![Resim 1](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/assets/33912144/7939f24e-f1ab-4951-b506-99f21767d422) | ![Resim 2]((https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/assets/33912144/49103581-61c4-4a4a-af49-dfe093d3445b)
+![Resim 3](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/assets/33912144/7939f24e-f1ab-4951-b506-99f21767d422) | ![Resim 4](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/assets/33912144/30a69435-f63c-4760-bdc3-4ff2bb77c318)
 :-------------------------:|:-------------------------:
 Open Closed            | Bertrand Meyer
 
