@@ -12,7 +12,7 @@ Techcareer.net'in düzenlediği Cumhuriyet'in 100. Yılında Kadınlara Özel Ba
 - [x] [C# Temelleri 1](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/blob/master/csharp-101.md)
 - [x] [C# Temelleri 2](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/blob/master/csharp-102.md)
 - [ ] [SOLID](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/blob/master/solid.md)
-- [ ] [Design Patterns](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/blob/master/solid.md)
+- [ ] [Design Patterns](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/blob/master/designpatterns.md)
 - [ ] [Alıştırmalar](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/blob/master/designpatterns.md)
 
    
