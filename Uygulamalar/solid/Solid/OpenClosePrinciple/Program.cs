@@ -1,12 +1,17 @@
-﻿Renault renault = new Renault();
+﻿#region Kodun Çalıştırıldığı Yer
+
+Renault renault = new Renault();
 renault.SendInfoDriver(new DriverInfo
 {
     Telephone = "53051531",
     EmailAddress = "ruveyda@gmail.com"
 });
-
 CalculateTripCost();
-// CalculateTripCost
+
+
+#endregion
+
+#region Seyahat harcanan parayı bulan fonksiyon
 void CalculateTripCost()
 {
     var calculator = new FuelCostClaculator();
@@ -14,7 +19,10 @@ void CalculateTripCost()
 
     Console.WriteLine($"Toplam harcanan:{cost}");
 }
+#endregion
 
+
+#region Renault 
 public class Renault : BaseCar
 {
     public override double GetCostPerKM()
@@ -23,7 +31,9 @@ public class Renault : BaseCar
     }
 }
 
+#endregion
 
+#region Nissan
 public class Nissan : BaseCar
 {
     public override double GetCostPerKM()
@@ -31,7 +41,10 @@ public class Nissan : BaseCar
         return 2.5;
     }
 }
+#endregion
 
+#region Base İşlemleri
+//Base için Base Car abstract oldu.
 public abstract class BaseCar
 {
     public int RoadKm { get; set; }
@@ -92,7 +105,10 @@ public abstract class BaseCar
     }
 }
 
-//Yakıt Giderini hesaplayan Class
+#endregion
+
+#region //Yakıt Giderini hesaplayan Class
+
 public class FuelCostClaculator
 {
      public double Calculate(BaseCar car)
@@ -103,7 +119,7 @@ public class FuelCostClaculator
         //Aşağıdaki kodu değiştirmem gerekiyor.
         //Değiştirmek zorunda kalıyorsan aslında kuralı ihlal etmiş oldum.
         // En basit yol abstraction kullanmaktır.
-
+        //return car.RoadKm * 4;
         //if (car is Renault)
         //{
         //    return car.RoadKm * 2;
@@ -123,10 +139,12 @@ public class FuelCostClaculator
     }
 }
 
+#endregion
 
-
+#region Sürücü Bilgisini içeren Class
 public class DriverInfo
 {
     public string EmailAddress { get; set; }
     public string Telephone { get; set; }
 }
+#endregion

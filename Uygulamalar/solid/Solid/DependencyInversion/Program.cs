@@ -1,4 +1,4 @@
-﻿//Çalıştırılma
+﻿#region Kodun Çalıştırıldığı yer
 RunCars();
 
 void RunCars()
@@ -35,6 +35,7 @@ void RunCars()
 
 }
 
+#endregion
 
 /// <summary>
 //Her bir yeni hata oluştuğunda tekrar metot yazmam gerekecek. 
@@ -44,6 +45,7 @@ void RunCars()
 //Abstraction ile sorun çözülebilir. 
 /// </summary>
 
+#region Dependency Inversion Kullanılmasa
 public class TripInfoLogger
 {
     public void LogToTurkey(string tripInfo)
@@ -72,7 +74,7 @@ public class LocalStorageLogger
     }
 }
 
-
+#endregion
 
 #region Dependency Inversion kullanılmış hali
 /// Çözülmüş hali 

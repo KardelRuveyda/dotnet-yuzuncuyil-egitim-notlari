@@ -31,3 +31,7 @@ Factory tasarım deseni (Fabrika tasarım deseni), bir nesnenin oluşturulma sü
 - Amacımız nesne üretim maliyetlerini minimize etmektir. Her zaman kullanılması mümkün değildir, ihtiyaç dahilinde kullanabiliriz. Elimizdeki nesneyi kullanarak onun klonlarını oluşturabiliyoruz. Prototype tasarım deseni, creational tasarım desenlerinden biridir ve nesnelerin kopyalanmasını sağlamayı amaçlar. Bu desen, bir nesnenin prototipini kullanarak yeni nesneler oluşturmanın bir yolunu tanımlar. Yeni nesneler, mevcut bir nesnenin kopyası alınarak oluşturulur, bu da yeni nesnelerin özelliklerini veya durumlarını başlangıç nesnesinden alacakları anlamına gelir.
 
 - Prototype tasarım deseni, özellikle nesne oluşturma maliyeti yüksek veya karmaşık olan durumlarda kullanışlıdır. Bu desen, sınıflar arasındaki bağımlılıkları azaltabilir ve nesnelerin daha dinamik bir şekilde oluşturulmasına olanak tanır.
+
+### Builder Tasarım Deseni Hakkında
+
+Genellikle ortaya bir nesne ortaya çıkarmayı hedefler. Nesne örneği birbiri arkasına atılacak adımların sırasıyla işlenmeisyle ortaya çıkar. Genellike biz bunları iş katmanlarında veya arayüz katmanlarında ifle yazmak yerine ilgili üreticinin enkejte edilmesi ve ortaya bir nesnenin çıkarılması şeklinde uygulanır. Buuilder Design Pattern'i internet örneklerinde hamburger üretimine benzetilebilir. Hamburger bir nesneyse vejeteryanlar için bir hamburger veya vejetaryan olmayanlar için üretilecek hamburgerde belirli bir sırayla oluşmasını ve ortaya çıkmasını sağlayan bir yapıdır. 
