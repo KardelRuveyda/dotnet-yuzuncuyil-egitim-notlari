@@ -64,7 +64,7 @@ Interface Segregation Principle" (ISP), SOLID prensiplerinden biridir ve arayüz
 
 Örneğin, bir arabayla ilgili bir arayüzde "Uçak Modu" gibi uygulanması gereksiz veya kullanılmayacak metotlar varsa, bu arayüzü implemente eden araba sınıfları için bu metotlar anlamsız olacaktır. Bu durum, ISP'nin ihlali olarak kabul edilebilir ve bu tür durumlar kaçınılmalıdır. Sınıflar, ihtiyaçlarına uygun ve anlamlı metotları içeren arayüzleri uygulayarak bu prensibi takip etmelidir.
 
-![Resim 3](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/assets/33912144/7939f24e-f1ab-4951-b506-99f21767d422) | ![Resim 4](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/assets/33912144/30a69435-f63c-4760-bdc3-4ff2bb77c318)
+![Resim 3](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/assets/33912144/af1bfe69-7e93-4bb6-8a13-597e8e9438f4) | ![Resim 4](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/assets/33912144/30a69435-f63c-4760-bdc3-4ff2bb77c318)
 :-------------------------:|:-------------------------:
 Open Closed            | Bertrand Meyer
 
@@ -87,6 +87,6 @@ Open Closed            | Bertrand Meyer
 - Yüksek seviyeli modüller ve düşük seviyeli modüller, her ikisi de soyutlamalara bağımlı olduklarından, değişiklikler bir modülde yapıldığında diğerini etkilemez.
 - Bu prensip, kodun değişikliklere daha dayanıklı, esnek ve sürdürülebilir olmasını sağlar.
 
-![Resim 3](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/assets/33912144/7939f24e-f1ab-4951-b506-99f21767d422) | ![Resim 4](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/assets/33912144/30a69435-f63c-4760-bdc3-4ff2bb77c318)
-:-------------------------:|:-------------------------:
-Open Closed            | Bertrand Meyer
+![Resim 3](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/assets/33912144/b9bc6939-c6e4-42cd-80ce-c97e0b730ff3)
+:-------------------------:
+Dependency Inversion         
