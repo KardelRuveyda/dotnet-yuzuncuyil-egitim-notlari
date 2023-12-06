@@ -6,6 +6,11 @@
 -  Bir şeyi yapabiliyor olmamız her şeyi yapmamız gerektiği anlamına gelmemektedir. Metot yazarken de bu yaklaşımla ilerlemeliyiz. Bir metotun bir sorumluluğu olsun sadece bir iş yapsın mantığında ilerlemek gün sonunda daha doğru olabilir. 
 - "Single Responsibility Principle" (SRP), yazılım geliştirme alanında SOLID prensiplerinden biridir. SOLID prensipleri, yazılım tasarımındaki temel prensipleri düzenler ve sürdürülebilir, esnek ve bakımı kolay sistemler oluşturmayı amaçlar. Single Responsibility Principle (Tek Sorumluluk Prensibi), Robert C. Martin'in belirttiği beş SOLID prensibinden biridir. Bu prensip, bir sınıfın yalnızca bir nedenle değişebileceğini ve bir sınıfın sorumluluklarının tek bir konsepte odaklanması gerektiğini savunur. Bu, bir sınıfın sadece bir tür görevi veya sorumluluğu olması gerektiği anlamına gelir. İdeali, bir sınıfın değişiklik nedeni sadece bir tane olmalıdır. Eğer bir sınıf birden fazla sorumluluğu üstlenirse, bu sınıfın herhangi bir sorumluluğundaki bir değişiklik diğer sorumlulukları etkileyebilir ve bu da kodun karmaşıklığını ve bakım zorluğunu artırabilir.
 
+![Resim 1](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/assets/33912144/e4ea7f32-5b1d-4e67-af51-933074f13f7c) | ![Resim 2](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/assets/33912144/fbb45327-d32c-4e76-bb48-4d3b993b8f42)
+:-------------------------:|:-------------------------:
+Signle Responsibility                | Robert C. Margin
+
+
 **SRP'nin avantajları şunlar olabilir:**
 
 **1. Daha İyi Bakım ve Anlaşılabilirlik:** Sınıfların tek bir sorumluluğa odaklanması, kodun daha anlaşılabilir ve bakımı daha kolay olmasını sağlar. Bu sayede, bir sınıfın içindeki değişikliklerin diğer kısımları etkileme olasılığı azalır.
