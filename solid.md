@@ -16,7 +16,7 @@
 
 
 
-![Resim 1](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/assets/33912144/e4ea7f32-5b1d-4e67-af51-933074f13f7c) | ![Resim 2](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/assets/33912144/fbb45327-d32c-4e76-bb48-4d3b993b8f42)
+![Resim 1](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/assets/33912144/e4ea7f32-5b1d-4e67-af51-933074f13f7c) | ![Resim 2](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/assets/33912144/e4ea7f32-5b1d-4e67-af51-933074f13f7c)
 :-------------------------:|:-------------------------:
 Single Responsibility              | Robert C. Martin
 
