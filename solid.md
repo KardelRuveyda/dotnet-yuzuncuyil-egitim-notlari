@@ -31,8 +31,6 @@ Single Responsibility              | Robert C. Martin
 **3. Daha Yüksek Uyum Sağlama:** OCP, birimlerin daha iyi bir şekilde uyum sağlamasını sağlar. Yeni özellikler eklemek, mevcut kodu değiştirmeksizin gerçekleştirilebileceği için, yazılım birimleri daha esnek ve yeniden kullanılabilir olabilir.
 
 OCP, diğer SOLID prensipleriyle birlikte kullanıldığında, daha modüler, sürdürülebilir ve esnek yazılım tasarımları elde etmeye yardımcı olabilir.
-![image](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/assets/33912144/30a69435-f63c-4760-bdc3-4ff2bb77c318)
-
 ![Resim 3](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/assets/33912144/7939f24e-f1ab-4951-b506-99f21767d422) | ![Resim 4](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/assets/33912144/30a69435-f63c-4760-bdc3-4ff2bb77c318)
 :-------------------------:|:-------------------------:
 Open Closed            | Bertrand Meyer
@@ -48,9 +46,13 @@ Open Closed            | Bertrand Meyer
 
 LSP'nin bu kuralları, türetilmiş sınıfların kullanımının güvenli olmasını sağlar ve kodun daha öngörülebilir olmasına katkıda bulunur. Bu prensip, polymorphism (çok biçimlilik) konseptiyle de ilişkilidir. Eğer bir sınıf, bir üst sınıfın yerine geçebiliyorsa, bu durumda polymorphism kullanılabilir ve bu nesneleri bir arayüz üzerinden kullanmak daha kolay hale gelir. LSP'nin amacı, türetilmiş sınıfların kullanımını güvenli ve sorunsuz hale getirerek, yazılımın esnek ve sürdürülebilir olmasına katkıda bulunmaktır.
 
+![Resim 3](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/assets/33912144/0f27941f-92d9-4da4-ab6e-d7ef18102652) | ![Resim 4](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/assets/33912144/cf1a549e-62a5-4ee9-82a2-e2d876b53294)
+:-------------------------:|:-------------------------:
+Liskov Substitution             | Barbara Liskov
+
 ### Interface Segregation Prensibi
 
-Interface Segregation Principle" (ISP), SOLID prensiplerinden biridir ve arayüzlerin (interfaces) mümkünse mümkün olduğunca özel olması gerektiğini savunur. Bu prensip, bir sınıfın kullanmadığı metotlara sahip bir arayüzü uygulamamasını önerir ve müşterilerin yalnızca ihtiyaçları olan metotları içeren küçük arayüzleri kullanmalarını teşvik eder. ISP'nin temel prensibi şu şekildedir: "Bir sınıf, ihtiyaç duymadığı metotları içeren bir arayüzü uygulamamalıdır." Bu ilkeye göre, bir sınıf yalnızca kendi ihtiyaçlarına uygun olan metotları içeren arayüzleri uygulamalıdır. Böylece, bir sınıfın gereksinim duymadığı metotlarla bağlantılı olması ve bu metotları boş bir şekilde implemente etmesi önlenmiş olur.
+Interface Segregation Principle" (ISP), SOLID prensiplerinden biridir ve arayüzlerin (interfaces) mümkünse mümkün olduğunca özel olması gerektiğini savunur. Bu prensip, bir sınıfın kullanmadığı metotlara sahip bir arayüzü uygulamamasını önerir ve müşterilerin yalnızca ihtiyaçları olan metotları içeren küçük arayüzleri kullanmalarını teşvik eder. ISP'nin temel prensibi şu şekildedir: **"Bir sınıf, ihtiyaç duymadığı metotları içeren bir arayüzü uygulamamalıdır."** Bu ilkeye göre, bir sınıf yalnızca kendi ihtiyaçlarına uygun olan metotları içeren arayüzleri uygulamalıdır. Böylece, bir sınıfın gereksinim duymadığı metotlarla bağlantılı olması ve bu metotları boş bir şekilde implemente etmesi önlenmiş olur.
 
 **ISP'nin avantajları şunlar olabilir:**
 
@@ -61,6 +63,10 @@ Interface Segregation Principle" (ISP), SOLID prensiplerinden biridir ve arayüz
 **3- Kodu Anlama ve Kullanma Kolaylığı:** Müşteriler, yalnızca ihtiyaç duydukları metotlara sahip arayüzleri kullanarak kodu daha iyi anlayabilir ve kullanabilirler.
 
 Örneğin, bir arabayla ilgili bir arayüzde "Uçak Modu" gibi uygulanması gereksiz veya kullanılmayacak metotlar varsa, bu arayüzü implemente eden araba sınıfları için bu metotlar anlamsız olacaktır. Bu durum, ISP'nin ihlali olarak kabul edilebilir ve bu tür durumlar kaçınılmalıdır. Sınıflar, ihtiyaçlarına uygun ve anlamlı metotları içeren arayüzleri uygulayarak bu prensibi takip etmelidir.
+
+![Resim 3](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/assets/33912144/7939f24e-f1ab-4951-b506-99f21767d422) | ![Resim 4](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/assets/33912144/30a69435-f63c-4760-bdc3-4ff2bb77c318)
+:-------------------------:|:-------------------------:
+Open Closed            | Bertrand Meyer
 
 ### Dependency Inversion Prensibi
 
@@ -80,3 +86,7 @@ Interface Segregation Principle" (ISP), SOLID prensiplerinden biridir ve arayüz
 
 - Yüksek seviyeli modüller ve düşük seviyeli modüller, her ikisi de soyutlamalara bağımlı olduklarından, değişiklikler bir modülde yapıldığında diğerini etkilemez.
 - Bu prensip, kodun değişikliklere daha dayanıklı, esnek ve sürdürülebilir olmasını sağlar.
+
+![Resim 3](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/assets/33912144/7939f24e-f1ab-4951-b506-99f21767d422) | ![Resim 4](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/assets/33912144/30a69435-f63c-4760-bdc3-4ff2bb77c318)
+:-------------------------:|:-------------------------:
+Open Closed            | Bertrand Meyer
