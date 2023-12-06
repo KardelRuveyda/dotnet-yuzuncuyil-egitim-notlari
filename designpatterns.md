@@ -16,6 +16,8 @@ Design pattern'ların sayısı belirli bir kesitte sınırlı değildir. Ancak, 
 - Abstract Factory Pattern
 - Builder Pattern
 - Prototype Pattern
+
+
 **Structural Design Patterns:**
 - Adapter Pattern
 - Bridge Pattern
@@ -24,6 +26,8 @@ Design pattern'ların sayısı belirli bir kesitte sınırlı değildir. Ancak, 
 - Facade Pattern
 - Flyweight Pattern
 - Proxy Pattern
+
+
 **Behavioral Design Patterns:**
 - Chain of Responsibility Pattern
 - Command PatternInterpreter Pattern
