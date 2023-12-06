@@ -1,5 +1,44 @@
 # Design Patterns
 
+Design pattern'lar, yazılım tasarımında sık karşılaşılan problemlere çözüm sunan tekrarlanabilir ve denenmiş pratiklerdir. Bu pattern'lar, yazılım geliştirme sürecinde daha okunabilir, sürdürülebilir, genişletilebilir ve yeniden kullanılabilir kod oluşturmanın yanı sıra, hataları minimize etmeye ve performansı optimize etmeye yardımcı olurlar. İşte design pattern'ların önemli olduğu bazı nedenler:
+
+- **Kodun Anlaşılabilirliği:** Design pattern'lar, belirli bir problemi çözmek için belirli bir yaklaşımı takip eden genel bir çözüm sunar. Bu, yazılım geliştiricilerin kodu daha hızlı anlamalarına ve bakım yapmalarına olanak tanır.
+- **Tekrar Kullanılabilirlik:** Design pattern'lar, genel problemler için genel çözümler sağladığından, bu pattern'ları kullanarak yazılmış kod parçalarını başka projelerde veya aynı projenin farklı yerlerinde tekrar kullanabilirsiniz.
+- **Esneklik ve Genişletilebilirlik:** Design pattern'lar, gelecekteki değişikliklere ve genişletmelere uyum sağlamak için tasarlanmıştır. Bu sayede yazılım, yeni gereksinimlere veya özelliklere daha kolay adapte olabilir.
+- **Hata Azaltma:** Design pattern'lar, genellikle test edilmiş ve doğrulanmış çözümler olduğu için hataları azaltmaya yardımcı olabilirler.
+- **Topluluk Standartları:** Design pattern'lar, birçok yazılım geliştiricisi tarafından bilinen ve benimsenen çözümlerdir. Bir projede bu pattern'ları kullanmak, yazılım geliştiriciler arasında bir standart oluşturabilir.
+
+Design pattern'ların sayısı belirli bir kesitte sınırlı değildir. Ancak, "Gang of Four" (GoF) olarak bilinen dört yazarın "Design Patterns: Elements of Reusable Object-Oriented Software" adlı kitaplarında tanımlanan 23 temel design pattern, en yaygın kullanılanlarıdır. Bu pattern'lar, Creational, Structural ve Behavioral olmak üzere üç kategoriye ayrılır. Ancak, zamanla yeni pattern'lar da geliştirilmekte ve kullanılmaktadır.
+
+**Creational Design Patterns:**
+- Singleton Pattern
+- Factory Method Pattern
+- Abstract Factory Pattern
+- Builder Pattern
+- Prototype Pattern
+**Structural Design Patterns:**
+- Adapter Pattern
+- Bridge Pattern
+- Composite Pattern
+- Decorator Pattern
+- Facade Pattern
+- Flyweight Pattern
+- Proxy Pattern
+**Behavioral Design Patterns:**
+- Chain of Responsibility Pattern
+- Command PatternInterpreter Pattern
+- Iterator Pattern
+- Mediator Pattern
+- Memento Pattern
+- Observer Pattern
+- State Pattern
+- Strategy Pattern
+- Template Method Pattern
+- Visitor Pattern
+
+**Not:** Bu eğitim kapsammında hepsini incelemek epey zor, o nedenle **Singleton**,**FactoryDesignPattern**,**AbstractFactory**,**Prototype** ve **Dependency Injection** patternlerini inceleyeceğiz. Fakat birçok pattern'i inceleyeceğim repoya [Design Patterns](https://github.com/KardelRuveyda/design-patterns-example-with-csharp) 'den ulaşabilirsiniz.
+
+
 ### Singleton Tasarım Deseni Hakkında
 
 Singleton tasarım deseni, yazılım tasarımında sıkça kullanılan bir tasarım deseni olup, bir sınıfın yalnızca bir örneğine (instance) sahip olduğundan emin olmak için kullanılır. Bu desen, bir sınıfın tek bir örneğinin oluşturulmasını ve bu örneğe küresel bir erişim noktası sağlanmasını amaçlar. Singleton deseni genellikle bir nesnenin yalnızca bir kez oluşturulmasını ve bu nesneye bir noktadan erişim sağlanmasını istediğiniz durumlarda kullanışlıdır.
