@@ -90,3 +90,11 @@ Interface Segregation        | Interface Segregation
 ![Resim 3](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/assets/33912144/b9bc6939-c6e4-42cd-80ce-c97e0b730ff3)
 :-------------------------:
 Dependency Inversion         
+
+
+## Kaynakça
+
+- https://www.youtube.com/watch?v=oLVETlMyJZM
+- https://www.youtube.com/watch?v=kF7rQmSRlq0&t=3s
+- https://gokhana.medium.com/solid-nedir-solid-yaz%C4%B1l%C4%B1m-prensipleri-nelerdir-40fb9450408e
+- https://www.freecodecamp.org/news/solid-principles-explained-in-plain-english/
