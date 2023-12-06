@@ -11,7 +11,7 @@ Techcareer.net'in düzenlediği Cumhuriyet'in 100. Yılında Kadınlara Özel Ba
 - [x] [Git Versiyon Kontrol Sistemi Temelleri](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/blob/master/git-101.md)
 - [x] [C# Temelleri 1](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/blob/master/csharp-101.md)
 - [x] [C# Temelleri 2](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/blob/master/csharp-102.md)
-- [x] [SOLID](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/blob/master/solid.md)
+- [ ] [SOLID](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/blob/master/solid.md)
 - [ ] [Design Patterns](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/blob/master/solid.md)
 - [ ] [Alıştırmalar](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/blob/master/designpatterns.md)
 
