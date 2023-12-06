@@ -6,10 +6,15 @@ kardel.Save();
 
 
 #region Logger Factory
+
+//En temel class LoggerFactory ( Yani fabrika üretiyorum. ) 
+//Factory'nin de bir abstract, interface soyutlamasının olması gerekiyor.
+//Yarın öbür gün başka bir factoryle de çalışmak isteyebilirim.
 public class LoggerFactory: ILoggerFactory
 {
     public ILogger CreateLogger()
     {
+        //Loglamayı yapacak bir sınıf üretiyorum.
         return new KRCLogger();
     }
 }
@@ -48,6 +53,7 @@ public interface IKardelLogger
 #endregion
 
 #region Loggers
+//1. Logger KRCLogger
 public class KRCLogger : ILogger
 {
     public void Log()
@@ -55,6 +61,8 @@ public class KRCLogger : ILogger
         Console.Write("KRC Logger logladı.");
     }
 }
+
+//2. Logger
 public class KardelLogger : IKardelLogger
 {
     public void Kardel()
@@ -64,6 +72,7 @@ public class KardelLogger : IKardelLogger
 }
 #endregion
 
+#region 1. Client
 public class UserManager
 {
     public void Save()
@@ -74,6 +83,10 @@ public class UserManager
     }
 }
 
+#endregion
+
+
+#region 2. Client
 public class KardelManager
 {
     private IKardelFactory _kardelFactory;
@@ -89,3 +102,4 @@ public class KardelManager
         kardel.Kardel();
     }
 }
+#endregion
