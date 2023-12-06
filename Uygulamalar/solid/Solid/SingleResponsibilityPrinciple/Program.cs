@@ -1,11 +1,15 @@
-﻿Renault renault = new Renault();
-//renault.SendInfoDriver(new DriverInfo
-//{
-//    Telephone = "53051531",
-//    EmailAddress = "ruveyda@gmail.com"
-//});
+﻿#region Kodun Çalıştırıldığı Kısım
+Renault renault = new Renault();
+renault.SendInfoDriver(new DriverInfo
+{
+    Telephone = "53051531",
+    EmailAddress = "ruveyda@gmail.com"
+});
+
+#endregion
 
 
+#region Birinci Arabanın Class'ı
 public class Renault
 {
     public int RoadKm { get; set; }
@@ -47,6 +51,7 @@ public class Renault
         }
     }
 
+    #region SingleResponsibility Uyması için Eklendi
     public void SendInfoDriverSms(DriverInfo driver)
     {
         if (!string.IsNullOrEmpty(driver.Telephone))
@@ -62,9 +67,13 @@ public class Renault
             SendMail();
         }
     }
+
+    #endregion
 }
+#endregion
 
 
+#region İkinci Arabanın Class'I
 public class Nissan
 {
     public int RoadKm { get; set; }
@@ -106,6 +115,7 @@ public class Nissan
         }
     }
 
+    #region Single Responsibility Uyumluluğu için eklendi.
     public void SendInfoDriverSms(DriverInfo driver)
     {
         if (!string.IsNullOrEmpty(driver.Telephone))
@@ -121,8 +131,10 @@ public class Nissan
             SendMail();
         }
     }
-}
 
+    #endregion
+}
+#endregion
 
 public class DriverInfo
 {
