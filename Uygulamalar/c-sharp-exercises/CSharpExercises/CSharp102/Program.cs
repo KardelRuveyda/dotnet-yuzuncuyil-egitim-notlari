@@ -1,36 +1,48 @@
-﻿#region Methodlar
-//Metotları ve Classları çağırdığım kısım
+#region Kodların Çalıştırıldığı Kısım
 HelloWorld();
-MyMethod("Kardel", "Çetin");
-IsMarried("Havva");
-IsMarried("Gizem");
-IsMarried("Hatice");
-IsMarriedInteger("Havva");
+MyMethod("kardel", "çetin");
+IsMarried("Alex");
+IsMarried("Jane");
+IsMarriedRefactor("Alex");
+IsMarriedInteger("Frank");
 CarFeatures();
+FindFruitName("elma");
 SpecialCarConsole();
 animalSoundFeatures();
 animalSoundFeatures2();
 abstractClassTest();
+InterfaceTest();
+MultipleInterfaceTest();
 TryCatchMethod();
-Throw(23);
-//Void Metotu : Geri dönüş değeri olmayan fonksiyonlardır. 
-//Response-> Yazdığımız metottan bize geri döner değelerdir. (List,string,boolean,int,object)
+TryCatchMethodFinally();
+Throw(20);
+#endregion
+
+#region Metotlar 
+//Void Metotu: Geri dönüş değeri olmayan fonksiyonlardır. 
+//Response -> Yazdığımız metotların geri dönüş değerleri olarak adlandırılır. 
+//(int,list,string,boolean,object vb.)
 void HelloWorld()
 {
     Console.WriteLine("Hello World");
 }
-//Geri dönüş değeri olmasın ama parametreli olsun. (FirstName,Age)
+
+//Metotun gene geri dönüş değeri olmasın. 
+// İki adet parametre alsın, firstName ve lastName
 
 void MyMethod(string firstName, string lastName)
 {
-    Console.WriteLine($"Benim adım {firstName}, soyadım da {lastName}");
+    Console.WriteLine($"Benim adım {firstName}, soyadım ise {lastName}");
 }
 
-//Boolean bir değer döndürsün. Eğer Gizem ve Kardel'i yazarsak bekar, Havva'yı evli olacak. 
+//Boolean bir değer döndürsün. 
+//Alex ise kişi evli , Alex değilse evli değil. 
+
 bool IsMarried(string name)
 {
     bool isMarried = false;
-    if (name == "Havva" || name == "Hatice")
+    string message = "";
+    if (name == "Alex")
     {
         isMarried = true;
     }
@@ -39,134 +51,144 @@ bool IsMarried(string name)
         isMarried = false;
     }
 
+    if (isMarried)
+    {
+        message = $"{name} evlidir. ";
+    }
+    else
+    {
+        message = $"{name} evli değildir.";
+    }
+
+    Console.WriteLine(message);
+
+    return isMarried;
+}
+
+//IsMarried Refactor edilmiş hali 
+bool IsMarriedRefactor(string name)
+{
     //Ternary If
-    //isMarried = (name == "Havva" || name == "Hatice") ? true : false;
+    bool isMarried = name == "Alex" ? true : false;
     string message = isMarried ? $"{name} evlidir." : $"{name} evli değildir.";
     Console.WriteLine(message);
     return isMarried;
 }
-
-//integer bir değer döndürecek metot yazınız. 
+//interger bir değer döndürecek metot yazalım. 
 int IsMarriedInteger(string name)
 {
-    int isMarried = 0;
-    if (name == "Havva" || name == "Hatice")
-    {
-        isMarried = 1;
-    }
-    else
-    {
-        isMarried = 1;
-    }
-
     //Ternary If
-    //isMarried = (name == "Havva" || name == "Hatice") ? true : false;
+    int isMarried = name == "Alex" ? 1 : 0;
     string message = isMarried == 1 ? $"{name} evlidir." : $"{name} evli değildir.";
-    Console.WriteLine(message);
     return isMarried;
 }
 
+//Arabanın özelliklerini getiren bir metot yazalım. 
 Car CarFeatures()
 {
-    //Birinci Yazım Şekli
+    //Birinci Yazım şekli 
     Car car = new Car();
     car.year = 2014;
-    car.color = "red";
-    car.model = "Nissan";
+    car.color = "black";
+    car.model = "Renault";
 
-    //İkinci Yazım Şekli
+    //İkinci yazım şekli
     Car car2 = new Car
     {
         color = "red",
         model = "Nissan",
-        year = 2013
+        year = 2012
     };
 
-    return car2;
+    Console.WriteLine(car.year);
+    Console.WriteLine(car.model);
+    ; return car2;
 }
 
-Fruit FindFruitName(string fruitName, string fruitName2)
+Fruit FindFruitName(string fruitName)
 {
-    Fruit fruit = new Fruit(fruitName, fruitName2);
+    Fruit fruit = new Fruit(fruitName);
 
-    Console.WriteLine($"Birinci meyvenin ismi {fruit.fruitName}, ikinci meyvenin ismi {fruit._fruitName2}");
+    Console.WriteLine($"Meyvenin ismi {fruit._fruitName}");
 
     return fruit;
 }
 
+//Special Car Testi için
 void SpecialCarConsole()
 {
     SpecialCar specialCar = new SpecialCar();
-
-    specialCar.carTest();
+    specialCar.CarTest();
 }
-
+#endregion
+//Polimorfizm 1 örneğinin çalıştırılması. 
 void animalSoundFeatures()
 {
     Animal myAnimal = new Animal();
     Animal myCat = new Cat();
     Animal myDog = new Dog();
 
-    myAnimal.animalSound();
     myCat.animalSound();
     myDog.animalSound();
 }
 
+//Polimorfizm 2 örneğinin çalıştırılması. 
 void animalSoundFeatures2()
 {
     Animal2 myAnimal = new Animal2();
     Animal2 myCat = new Cat2();
     Animal2 myDog = new Dog2();
 
-    myAnimal.animalSound();
     myCat.animalSound();
     myDog.animalSound();
 }
 
+//abstract metotunun test edilmesi 
 void abstractClassTest()
 {
     Snake snake = new Snake();
-    //Animal3 abstractNew = new Animal3(); // abstract classlar new-lene-mez.
+    //Animal3 animal3 = new Animal3(); // abstract classlar new-le-ne-mez.
 
-    snake.animalSound(); // Abstract Class çağrıldı. 
-    snake.sleep(); // Basit bir metotun çağrılması. 
+    snake.animalSound();
+    snake.sleep();
 }
-
-void InterfaceClassTest()
+//Interface örneklerini test etmek için 
+void InterfaceTest()
 {
     Bird bird = new Bird();
     bird.animalSound();
 }
 
-void MultipleInterfaceClassTest()
+void MultipleInterfaceTest()
 {
     Demo demo = new Demo();
     demo.myMethod();
     demo.mySecondMethod();
 }
-
+//enum örneği
 void setRole()
 {
     Level normal = Level.Normal;
     Level admin = Level.Admin;
     Level intern = Level.Intern;
+
+    Console.WriteLine(normal);
+    Console.WriteLine(admin);
+    Console.WriteLine(intern);
 }
 
-
-
-#region Try Catch
+#region Try Cath Methodu
 void TryCatchMethod()
 {
     try
     {
-        // hata alabilecek kod yazılır.
+        //hata alabilecek bir kod
         int[] myNumbers = { 1, 2, 3 };
         Console.WriteLine(myNumbers[10]);
     }
     catch (Exception e)
     {
-        // hata alınırsa buraya düşer.
-        Console.WriteLine("Something went wrong");
+        Console.WriteLine(e.Message);
     }
 }
 
@@ -191,17 +213,16 @@ void TryCatchMethodFinally()
 
 void Throw(int age)
 {
-    if (age > 18 && age < 25)
+    if(age > 18 && age < 25)
     {
-        throw new ArithmeticException("Access denied.");
-    }else
+        throw new ArithmeticException("Access is denied");
+    }
+    else
     {
-        Console.WriteLine("Acces granted");
+        Console.WriteLine("Access granted.");
     }
 }
 #endregion
-#endregion
-
 #region Classlar
 class Car
 {
@@ -212,45 +233,42 @@ class Car
 
 class Fruit
 {
-    public string fruitName;
-    public string _fruitName2;
+    public string _fruitName;
 
-    public Fruit(string fruitName, string fruitName2)
+    public Fruit(string fruitName)
     {
-        this.fruitName = fruitName;
-        _fruitName2 = fruitName2;
+        _fruitName = fruitName;
     }
-
 }
 #endregion
 
 #region Inheritence(Kalıtım)
-class Vehicle //base clas ( parent ) 
+class Vehicle // base clas 
 {
-    public string brand = "Renault";
+    public string _brand = "Nissan";
 
-    public void carTest()
+    public void CarTest()
     {
-        Console.WriteLine("Bu bir testtir. Vehicle Parent, SpecialCar Child.");
+        Console.WriteLine($"Bu bir testtir.");
     }
 }
 
-class SpecialCar : Vehicle //derived class ( child ) 
+class SpecialCar : Vehicle
 {
-    public string modelName = "Mustang"; // Special Car Field
+    public string modelName = "Renault"; // Special Car Field.
 }
 #endregion
 
-#region Polimorfizm 1
-class Animal // Base clas ( parent ) 
+#region Polimorfizm 1 ( İstenen Senaryo olmayan kısmı)
+class Animal //Base Class
 {
     public void animalSound()
     {
-        Console.WriteLine("The animal makes a sound.");
+        Console.WriteLine("The animal makes a sound");
     }
 }
 
-class Cat : Animal // Child ( Derived Class )
+class Cat:Animal
 {
     public void animalSound()
     {
@@ -258,26 +276,25 @@ class Cat : Animal // Child ( Derived Class )
     }
 }
 
-class Dog : Animal //Child ( Derived Class ) 
+class Dog : Animal
 {
     public void animalSound()
     {
-        Console.WriteLine("The dog says: hav");
+        Console.WriteLine("The dog says : hav hav");
     }
 }
-
 #endregion
 
-#region Polimorfizm 2 ( Virtual ve Override Kullanımı) 
-class Animal2 // Base clas ( parent ) 
+#region Polimorfizm 2 ( Virtual ve Override Kullanımı )
+class Animal2 //Base Class
 {
     public virtual void animalSound()
     {
-        Console.WriteLine("The animal makes a sound.");
+        Console.WriteLine("The animal makes a sound");
     }
 }
 
-class Cat2 : Animal2 // Child ( Derived Class )
+class Cat2 : Animal2
 {
     public override void animalSound()
     {
@@ -285,39 +302,38 @@ class Cat2 : Animal2 // Child ( Derived Class )
     }
 }
 
-class Dog2 : Animal2 //Child ( Derived Class ) 
+class Dog2 : Animal2
 {
     public override void animalSound()
     {
-        Console.WriteLine("The dog says: hav");
+        Console.WriteLine("The dog says : hav hav");
     }
 }
 #endregion
 
-#region C# Abstraction
-abstract class Animal3
+#region C# Abstraction 
+abstract class Animal3 //baseclass
 {
     public abstract void animalSound();
 
     public void sleep()
     {
-        Console.WriteLine("Animal is sleeping...");
+        Console.WriteLine("Animal is sleeping.");
     }
 }
 
-class Snake : Animal3 //Derived classs ( inherit from Animal3
+class Snake : Animal3 // Inherit edilmiş class ( miras alınmış class)
 {
     public override void animalSound()
     {
-        //The body of animalSound() is provided here.
-        Console.WriteLine("The snake is SsSsSsSsS ");
+        Console.WriteLine("The snake is SsSsSSs");
     }
 }
 #endregion
 
 #region Interface
-
 //Tek Interface Örneği
+
 interface IAnimal
 {
     void animalSound();
@@ -327,11 +343,11 @@ class Bird : IAnimal
 {
     public void animalSound()
     {
-        Console.WriteLine("The bird is cikcik");
+        Console.WriteLine("The bird is cik cik.");
     }
 }
 
-//Multiple Interfeace
+//Multiple Interface
 interface IFirstInterface
 {
     void myMethod();
@@ -346,14 +362,15 @@ class Demo : IFirstInterface, ISecondInterface
 {
     public void myMethod()
     {
-       Console.WriteLine("This is myMethod.");
+        Console.WriteLine("Bu birinci metottur.");
     }
 
     public void mySecondMethod()
     {
-        Console.WriteLine("This is mySecondMethod.");
+        Console.WriteLine("Bu ikinci metottur.");
     }
 }
+
 #endregion
 
 #region Enums
@@ -364,4 +381,3 @@ enum Level
     Intern
 }
 #endregion
-
