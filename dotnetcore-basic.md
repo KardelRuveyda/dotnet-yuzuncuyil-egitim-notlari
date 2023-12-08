@@ -96,3 +96,20 @@ Entity Framework, genellikle bir veritabanı motoruna bağımlı olarak çalış
 
 Entity Framework, offline çalışma senaryolarını desteklemede bazı zorluklar yaşayabilir. Mobil uygulamalar veya sınırlı ağ bağlantıları olan senaryolarda offline desteği eksik olabilir.
 Bu dezavantajlar, Entity Framework'ün kullanımı sırasında karşılaşılabilecek potansiyel sorunlardır. Her projenin ihtiyaçları farklı olduğu için, Entity Framework kullanımı öncesinde avantajları ve dezavantajları dikkatlice değerlendirmek önemlidir.
+
+## EF Core hangi veri tabanlarında çalışır?
+
+
+Entity Framework Core, birden çok veritabanı yönetim sistemini destekler. Ancak, desteklenen veritabanları zamanla değişebilir ve geliştikçe yeni sürümlerle yeni veritabanları eklenir. Entity Framework Core 5.0 sürümüne kadar, aşağıdaki veritabanı sistemleri desteklenmiştir:
+
+**Microsoft SQL Server:** Entity Framework Core, Microsoft SQL Server ile entegrasyon sağlar. Microsoft.EntityFrameworkCore.SqlServer paketini kullanarak SQL Server ile etkileşime geçebilirsiniz.
+
+**MySQL:** MySQL veritabanı için Entity Framework Core sürücüsü mevcuttur. MySql.Data.EntityFrameworkCore paketi, MySQL veritabanı ile çalışmak için kullanılabilir.
+
+**PostgreSQL:** Entity Framework Core, PostgreSQL ile uyumludur. Npgsql.EntityFrameworkCore.PostgreSQL paketi, PostgreSQL veritabanı ile etkileşim için kullanılır.
+
+**SQLite:** Entity Framework Core, hafif ve yerel bir veritabanı olan SQLite ile kullanılabilir. Microsoft.EntityFrameworkCore.Sqlite paketi, SQLite veritabanı ile çalışmak için kullanılır.
+
+**In-Memory Database:** Entity Framework Core ayrıca, hafızada çalışan geçici bir veritabanı olarak kullanılabilecek bir in-memory veritabanını destekler. Bu, testler ve hızlı prototipler oluşturmak için kullanışlıdır.
+
+Bu, Entity Framework Core'un desteklediği bazı veritabanlarıdır, ancak gelişen zaman içinde yeni sürümlerle yeni veritabanları eklenmiş olabilir. Projelerinizin ihtiyaçlarına ve kullanılan teknolojilere bağlı olarak, uygun veritabanı sürücüsünü seçmek önemlidir.
