@@ -1,60 +1,30 @@
-﻿//
+﻿// User Manager sınıfından bir örnek oluşturuluyor.
 UserManager manager = new UserManager();
+// Kardel Manager sınıfından bir örnek, KardelFactory kullanılarak oluşturuluyor.
 KardelManager kardel = new KardelManager(new KardelFactory());
+
+// User Manager'ın Save metodu çağrılıyor.
 manager.Save();
+// Kardel Manager'ın Save metodu çağrılıyor.
 kardel.Save();
 
 
-#region Logger Factory
 
-//En temel class LoggerFactory ( Yani fabrika üretiyorum. ) 
-//Factory'nin de bir abstract, interface soyutlamasının olması gerekiyor.
-//Yarın öbür gün başka bir factoryle de çalışmak isteyebilirim.
-public class LoggerFactory: ILoggerFactory
-{
-    public ILogger CreateLogger()
-    {
-        //Loglamayı yapacak bir sınıf üretiyorum.
-        return new KRCLogger();
-    }
-}
-
-public interface ILoggerFactory
-{
-    ILogger CreateLogger();
-}
-
-public interface ILogger
-{
-    void Log();
-}
-
-#endregion 
-
-#region Kardel Factory
-
-public class KardelFactory : IKardelFactory
-{
-    public IKardelLogger CreateLogger()
-    {
-        return new KardelLogger();
-    }
-}
-
-public interface IKardelFactory
-{
-    IKardelLogger CreateLogger();
-}
+#region Loggers
+// IKardelLogger arayüzü, KardelLogger sınıfının bir örneğini oluşturacak fabrika sınıflar için bir şablon belirler.
 public interface IKardelLogger
 {
     void Kardel();
 }
 
-#endregion
+public interface IKRCLogger
+{
+    void Log();
+}
 
-#region Loggers
+
 //1. Logger KRCLogger
-public class KRCLogger : ILogger
+public class KRCLogger : IKRCLogger
 {
     public void Log()
     {
@@ -72,13 +42,60 @@ public class KardelLogger : IKardelLogger
 }
 #endregion
 
+
+#region Logger Factory
+
+//En temel class LoggerFactory ( Yani fabrika üretiyorum. ) 
+//Factory'nin de bir abstract, interface soyutlamasının olması gerekiyor.
+//Yarın öbür gün başka bir factoryle de çalışmak isteyebilirim.
+
+// LoggerFactory, ILoggerFactory arayüzünü implemente ediyor.
+public class LoggerFactory: ILoggerFactory
+{
+    public IKRCLogger CreateLogger()
+    {
+        // KRCLogger sınıfından bir örnek oluşturularak geri döndürülüyor.
+        return new KRCLogger();
+    }
+}
+
+// ILoggerFactory arayüzü, loglama sınıflarının örneklerini oluşturacak fabrika sınıflar için bir şablon belirler.
+public interface ILoggerFactory
+{
+    IKRCLogger CreateLogger();
+}
+#endregion 
+
+#region Kardel Factory
+
+// KardelFactory, IKardelFactory arayüzünü implemente ediyor.
+public class KardelFactory : IKardelFactory
+{
+    // IKardelFactory arayüzünden gelen CreateLogger metodu implemente ediliyor.
+    public IKardelLogger CreateLogger()
+    {
+        // KardelLogger sınıfından bir örnek oluşturularak geri döndürülüyor.
+        return new KardelLogger();
+    }
+}
+
+// IKardelLogger arayüzü, KardelLogger sınıfının bir örneğini oluşturacak fabrika sınıflar için bir şablon belirler.
+public interface IKardelFactory
+{
+    IKardelLogger CreateLogger();
+}
+#endregion
+
+
 #region 1. Client
+// UserManager sınıfı, ILoggerFactory kullanarak bir ILogger örneği oluşturarak loglama işlemini gerçekleştiriyor.
 public class UserManager
 {
     public void Save()
     {
-        //ILogger logger = new KRCLogger();
-        ILogger logger = new LoggerFactory().CreateLogger();
+        // ILoggerFactory arayüzünden bir örnek oluşturuluyor.
+        IKRCLogger logger = new LoggerFactory().CreateLogger();
+        // Oluşturulan ILogger örneğinin Log metodu çağrılıyor.
         logger.Log();
     }
 }
@@ -87,10 +104,11 @@ public class UserManager
 
 
 #region 2. Client
+// KardelManager sınıfı, IKardelFactory kullanarak bir IKardelLogger örneği oluşturarak Kardel özelinde loglama işlemini gerçekleştiriyor.
 public class KardelManager
 {
     private IKardelFactory _kardelFactory;
-
+    // IKardelFactory arayüzünden bir örnek alarak KardelManager sınıfını başlatan bir constructor.
     public KardelManager(IKardelFactory loggerFactory)
     {
         _kardelFactory = loggerFactory;
@@ -98,7 +116,9 @@ public class KardelManager
 
     public void Save()
     {
-        IKardelLogger kardel = _kardelFactory.CreateLogger(); 
+        // Save metodu, IKardelFactory kullanarak bir IKardelLogger örneği oluşturuyor ve Kardel metodu çağrılıyor.
+        IKardelLogger kardel = _kardelFactory.CreateLogger();
+        // Oluşturulan IKardelLogger örneğinin Kardel metodu çağrılıyor.
         kardel.Kardel();
     }
 }
