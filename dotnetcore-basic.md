@@ -61,3 +61,38 @@ Entity Framework, unit test yazarken veritabanı bağımlılıklarını yönetme
 Entity Framework, güçlü bir veri modelleme yeteneği sunar. Veritabanındaki karmaşık yapıları, sınıflar ve ilişkiler üzerinden nesne modellerine dönüştürme konusunda etkilidir.
 
 Entity Framework, bu avantajlarıyla birlikte .NET geliştiricilerine veritabanı işlemlerini daha kolay, hızlı ve etkili bir şekilde gerçekleştirme imkanı sunar. Ancak, her avantajın yanında bazı durumlar için dikkate alınması gereken dezavantajlar da olabilir, bu nedenle kullanmadan önce projenizin ihtiyaçlarına uygun olduğundan emin olmalısınız.
+
+## Entity Framework Dezavantajları nelerdir?
+
+**Performans Sorunları:**
+
+Entity Framework, özellikle büyük ve karmaşık veritabanları ile çalışırken performans sorunlarına neden olabilir. Özel optimizasyonlar ve dikkatli sorgu yazımı olmadan, sorguların veritabanında yetersiz performansa neden olma olasılığı vardır.
+
+**Veritabanı Tasarımı ve Optimizasyon Zorlukları:**
+
+Entity Framework kullanırken, veritabanı tasarımında ve optimizasyonunda bazı kısıtlamalarla karşılaşabilirsiniz. Özellikle, gelişmiş veritabanı optimizasyonlarını gerçekleştirmek istediğinizde, doğrudan SQL sorguları yazmak daha etkili olabilir.
+
+**Karmaşıklık ve Öğrenme Eğrisi:**
+
+Entity Framework, büyük projelerde kullanıldığında karmaşık hale gelebilir ve öğrenme eğrisi yüksek olabilir. Uygulama gereksinimlerinize uygun şekilde yapılandırma ve kullanma konusunda dikkatli olmak önemlidir.
+
+**Yetersiz Özel Mappings:**
+
+Entity Framework, bazı durumlarda özel veritabanı sütunlarını sınıflara bağlamakta veya özel bir şekilde sorgu oluşturmada yetersiz kalabilir. Bu durumda, stored procedure veya doğrudan SQL kullanma ihtiyacı doğabilir.
+
+**Çalışma Zamanı Performansı:**
+
+Entity Framework, veritabanı sorgularını çalışma zamanında oluşturduğu için, bu durum performans maliyetine neden olabilir. Özellikle, aynı sorguların tekrar tekrar kullanıldığı durumlarda bu maliyet artabilir.
+
+**Gelişmiş Veri Kontrolü Eksikliği:**
+
+Bazı durumlarda, Entity Framework'un otomatik olarak oluşturduğu SQL sorguları, gelişmiş veri kontrolü veya özel işlemler gerçekleştirme ihtiyacını karşılamayabilir. Bu durumda, doğrudan SQL veya stored procedure kullanma ihtiyacı doğabilir.
+
+**Veritabanı Bağımlılığı:**
+
+Entity Framework, genellikle bir veritabanı motoruna bağımlı olarak çalışır. Bu durum, veritabanı motorunu değiştirmek istediğinizde uyumluluk sorunlarına neden olabilir.
+
+**Zayıf Offline Desteği:**
+
+Entity Framework, offline çalışma senaryolarını desteklemede bazı zorluklar yaşayabilir. Mobil uygulamalar veya sınırlı ağ bağlantıları olan senaryolarda offline desteği eksik olabilir.
+Bu dezavantajlar, Entity Framework'ün kullanımı sırasında karşılaşılabilecek potansiyel sorunlardır. Her projenin ihtiyaçları farklı olduğu için, Entity Framework kullanımı öncesinde avantajları ve dezavantajları dikkatlice değerlendirmek önemlidir.
