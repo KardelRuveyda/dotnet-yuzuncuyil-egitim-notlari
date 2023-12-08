@@ -1,22 +1,21 @@
-﻿#region Kodun Çalıştırıldığı Kısım
+﻿#region Kodun Çalıştırıldığı Kısım 
 Renault renault = new Renault();
-renault.SendInfoDriver(new DriverInfo
-{
-    Telephone = "53051531",
-    EmailAddress = "ruveyda@gmail.com"
-});
+//Sürücü bilgilerinin sadece mail gönderilmesini istiyorsam aşağıdaki kodu çalıştırım. 
 
+renault.SendInfoDriverMail(new DriverInfo
+{
+    EmailAdress = "ruveydakardelcetin@gmail.com"
+});
 #endregion
 
-
-#region Birinci Arabanın Class'ı
+#region Birinci Arabanın Class'ının oluşturulması
 public class Renault
 {
-    public int RoadKm { get; set; }
+    public int RoadmKm { get; set; }
 
     public void Go()
     {
-        Console.WriteLine("Araba  gidiyor.");
+        Console.WriteLine("Araba gidiyor..");
     }
 
     public void Stop()
@@ -26,35 +25,33 @@ public class Renault
 
     public void SendMail()
     {
-        Console.WriteLine("Mail gönderildi.");
+        Console.WriteLine($"Mail gönderildi. Mail Adresi");
     }
 
     public void SendSms()
     {
-        Console.WriteLine("Mail gönderildi.");
+        Console.WriteLine("SMS Gönderildi");
     }
 
+    //Bir metot içerisinde birden fazla işlem yapılmaması gerektiğini gösteren bir metot yazalım .
 
-    //Bir metot içerisinde birden fazla işlem yapmaması gerekiyor
-    //Aşağıdaki işlemde hem Mail hem Sms atılmaktadır.
-    //Bu single responsibility'e uygu bir kullanım değildir. 
     public void SendInfoDriver(DriverInfo driver)
     {
-        if (!string.IsNullOrEmpty(driver.EmailAddress))
+        if (!String.IsNullOrEmpty(driver.EmailAdress))
         {
             SendMail();
         }
 
-        if (!string.IsNullOrEmpty(driver.Telephone))
+        if (!String.IsNullOrEmpty(driver.Telephone))
         {
             SendSms();
         }
     }
 
-    #region SingleResponsibility Uyması için Eklendi
+    #region Single Responsibility İşlemleri İçin Yapılan Alan
     public void SendInfoDriverSms(DriverInfo driver)
     {
-        if (!string.IsNullOrEmpty(driver.Telephone))
+        if (!String.IsNullOrEmpty(driver.Telephone))
         {
             SendSms();
         }
@@ -62,82 +59,18 @@ public class Renault
 
     public void SendInfoDriverMail(DriverInfo driver)
     {
-        if (!string.IsNullOrEmpty(driver.EmailAddress))
+        if (!String.IsNullOrEmpty(driver.EmailAdress))
         {
             SendMail();
         }
     }
-
     #endregion
 }
-#endregion
-
-
-#region İkinci Arabanın Class'I
-public class Nissan
-{
-    public int RoadKm { get; set; }
-
-    public void Go()
-    {
-        Console.WriteLine("Araba  gidiyor.");
-    }
-
-    public void Stop()
-    {
-        Console.WriteLine("Araba durdu.");
-    }
-
-    public void SendMail()
-    {
-        Console.WriteLine("Mail gönderildi.");
-    }
-
-    public void SendSms()
-    {
-        Console.WriteLine("Mail gönderildi.");
-    }
-
-
-    //Bir metot içerisinde birden fazla işlem yapmaması gerekiyor
-    //Aşağıdaki işlemde hem Mail hem Sms atılmaktadır.
-    //Bu single responsibility'e uygu bir kullanım değildir. 
-    public void SendInfoDriver(DriverInfo driver)
-    {
-        if (!string.IsNullOrEmpty(driver.EmailAddress))
-        {
-            SendMail();
-        }
-
-        if (!string.IsNullOrEmpty(driver.Telephone))
-        {
-            SendSms();
-        }
-    }
-
-    #region Single Responsibility Uyumluluğu için eklendi.
-    public void SendInfoDriverSms(DriverInfo driver)
-    {
-        if (!string.IsNullOrEmpty(driver.Telephone))
-        {
-            SendSms();
-        }
-    }
-
-    public void SendInfoDriverMail(DriverInfo driver)
-    {
-        if (!string.IsNullOrEmpty(driver.EmailAddress))
-        {
-            SendMail();
-        }
-    }
-
-    #endregion
-}
-#endregion
 
 public class DriverInfo
 {
-    public string EmailAddress { get; set; }
+    public string EmailAdress { get; set; }
     public string Telephone { get; set; }
 }
+
+#endregion

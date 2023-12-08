@@ -1,27 +1,18 @@
-﻿#region Kodun Çalıştırıldığı Yer
-
+﻿#region Kodun çalıştırıldığı yer
 Renault renault = new Renault();
-renault.SendInfoDriver(new DriverInfo
-{
-    Telephone = "53051531",
-    EmailAddress = "ruveyda@gmail.com"
-});
+
 CalculateTripCost();
-
-
-#endregion
-
-#region Seyahat harcanan parayı bulan fonksiyon
+#region Harcanan yakıt parasını hesaplayan fonksiyon 
 void CalculateTripCost()
 {
-    var calculator = new FuelCostClaculator();
-    var cost= calculator.Calculate(new Renault());
+    var calculator = new FuelCostCalculator();
+    var cost = calculator.Calculate(new Renault());
 
-    Console.WriteLine($"Toplam harcanan:{cost}");
+    Console.WriteLine($"Toplam Harcanan Para: {cost}");
+    Console.ReadLine();
 }
 #endregion
-
-
+#endregion
 #region Renault 
 public class Renault : BaseCar
 {
@@ -30,7 +21,6 @@ public class Renault : BaseCar
         return 1.5;
     }
 }
-
 #endregion
 
 #region Nissan
@@ -43,17 +33,44 @@ public class Nissan : BaseCar
 }
 #endregion
 
-#region Base İşlemleri
-//Base için Base Car abstract oldu.
+#region Yakıt Giderlerini Hesaplayan Bir Class
+
+public class FuelCostCalculator
+{
+    public double Calculate(BaseCar car)
+    {
+        //if (car is Nissan)
+        //{
+        //    return 5.6;
+        //}
+        //else if (car is Renault)
+        //{
+        //    return  3.5;
+        //}else if(car is BMW)
+        //{
+        //    return 1.5;
+        //}
+        //else
+        //{
+        //    return 10.5;
+        //}
+        return car.RoadmKm * car.GetCostPerKM();
+    }
+}
+
+#endregion
+
+
+#region Base Car Abstract Class'ının oluşturulması
 public abstract class BaseCar
 {
-    public int RoadKm { get; set; }
+    public double RoadmKm { get; set; }
 
     public abstract double GetCostPerKM();
 
     public void Go()
     {
-        Console.WriteLine("Araba  gidiyor.");
+        Console.WriteLine("Araba gidiyor..");
     }
 
     public void Stop()
@@ -63,34 +80,17 @@ public abstract class BaseCar
 
     public void SendMail()
     {
-        Console.WriteLine("Mail gönderildi.");
+        Console.WriteLine($"Mail gönderildi. Mail Adresi");
     }
 
     public void SendSms()
     {
-        Console.WriteLine("Mail gönderildi.");
-    }
-
-
-    //Bir metot içerisinde birden fazla işlem yapmaması gerekiyor
-    //Aşağıdaki işlemde hem Mail hem Sms atılmaktadır.
-    //Bu single responsibility'e uygu bir kullanım değildir. 
-    public void SendInfoDriver(DriverInfo driver)
-    {
-        if (!string.IsNullOrEmpty(driver.EmailAddress))
-        {
-            SendMail();
-        }
-
-        if (!string.IsNullOrEmpty(driver.Telephone))
-        {
-            SendSms();
-        }
+        Console.WriteLine("SMS Gönderildi");
     }
 
     public void SendInfoDriverSms(DriverInfo driver)
     {
-        if (!string.IsNullOrEmpty(driver.Telephone))
+        if (!String.IsNullOrEmpty(driver.Telephone))
         {
             SendSms();
         }
@@ -98,53 +98,16 @@ public abstract class BaseCar
 
     public void SendInfoDriverMail(DriverInfo driver)
     {
-        if (!string.IsNullOrEmpty(driver.EmailAddress))
+        if (!String.IsNullOrEmpty(driver.EmailAdress))
         {
             SendMail();
         }
     }
 }
 
-#endregion
-
-#region //Yakıt Giderini hesaplayan Class
-
-public class FuelCostClaculator
-{
-     public double Calculate(BaseCar car)
-    {
-
-
-        //Normalde bu şekilde ama ben her araç geldiğinde 
-        //Aşağıdaki kodu değiştirmem gerekiyor.
-        //Değiştirmek zorunda kalıyorsan aslında kuralı ihlal etmiş oldum.
-        // En basit yol abstraction kullanmaktır.
-        //return car.RoadKm * 4;
-        //if (car is Renault)
-        //{
-        //    return car.RoadKm * 2;
-        //}else if(car is Nissan)
-        //{
-        //    return car.RoadKm * 4;
-        //}
-        //else
-        //{
-        //    return car.RoadKm * 1;
-
-        //}
-
-        // Geliştirmeye açık ama değişme kapalı olmuş oldu.
-
-        return car.RoadKm * car.GetCostPerKM();
-    }
-}
-
-#endregion
-
-#region Sürücü Bilgisini içeren Class
 public class DriverInfo
 {
-    public string EmailAddress { get; set; }
+    public string EmailAdress { get; set; }
     public string Telephone { get; set; }
 }
 #endregion

@@ -1,4 +1,5 @@
-﻿#region Kodun Çalıştırıldığı yer
+﻿
+#region Kodun Çalıştırıldığı Yer 
 RunCars();
 
 void RunCars()
@@ -7,43 +8,32 @@ void RunCars()
     {
         var renault = new Renault();
 
-        // Araç hareket ediyor.
+        //Araç hareket etsin.
         renault.Go();
 
-        // Duruyor
+        //Duruyor
         renault.Stop();
 
-        // Mail atıyor.
-        renault.SendInfoDriverMail(new DriverInfo());
+        //Bilgilerle ilgili sürücüye mail atsın. 
+        renault.SendInfoDriverEmail(new DriverInfo());
     }
-    catch (ArithmeticException ex2)
+    catch (ArithmeticException ex1)
     {
-        //Motorla ilgili arıza oluşursa 
-        new TripInfoLogger().LogToLocalStorage(ex2.Message);
-        new TripInfoLoggerDependency(new LogStorageLoggerDependency()).Log(ex2.Message);
-        //İkinci çözümle
+        //Motorla ilgili bir arıza oluşursa
+        new TripInfoLogger().LogToLocalStorage(ex1.Message);
+
+        //dependency ile 
+        new TripInfoLoggerDependency(new LogStorageLoggerDependency()).Log(ex1.Message);
+
     }
-    catch (Exception ex)
+    catch(Exception ex2)
     {
-        // Lastik basıncı vs gibi bir hata oluşursa buraya loglanıyor.
-        // Türkiyeye gönderilecek.
-        new TripInfoLogger().LogToTurkey(ex.Message);
-        new TripInfoLoggerDependency(new TurkeyLoggerDependency()).Log(ex.Message);
+        //Lastik basıncı ile ilgili bir arıza oluşsun.
+        new TripInfoLogger().LogToTurkey(ex2.Message);
+        new TripInfoLoggerDependency(new TurkeyLoggerDependency()).Log(ex2.Message);
     }
-
-
-
 }
-
 #endregion
-
-/// <summary>
-//Her bir yeni hata oluştuğunda tekrar metot yazmam gerekecek. 
-//Bu aslında bir sorun :(
-//TripInfoLogger TurkeyLogger içerisindeki metotlara bağımlı. 
-// Daha üst seviyedeki class alt metotlara bağımlı olmamalı
-//Abstraction ile sorun çözülebilir. 
-/// </summary>
 
 #region Dependency Inversion Kullanılmasa
 public class TripInfoLogger
@@ -57,12 +47,23 @@ public class TripInfoLogger
     {
         new LocalStorageLogger().Log(logInfo);
     }
+
+    public void GermanyStorageLogger(string logInfo)
+    {
+        new GermanyStorageLogger().Log(logInfo);
+    }
+
+    public void RussiaStorageLogger(string logInfo)
+    {
+        new RussiaStorageLogger().Log(logInfo);
+    }
 }
+
 public class TurkeyLogger
 {
     public void Log(string logStr)
     {
-        Console.WriteLine("Loglama işlemi Turkey");
+        Console.WriteLine($"Loglama işlemi Türkiye'm:{logStr}");
     }
 }
 
@@ -70,38 +71,50 @@ public class LocalStorageLogger
 {
     public void Log(string logStr)
     {
-        Console.WriteLine("Local Storage Loglama işlemi Turkey");
+        Console.WriteLine($"Loglama işlemi Ana Merkez:{logStr}");
+    }
+}
+
+public class GermanyStorageLogger
+{
+    public void Log(string logStr)
+    {
+        Console.WriteLine($"Loglama işlemi Ana Merkez:{logStr}");
+    }
+}
+
+public class RussiaStorageLogger
+{
+    public void Log(string logStr)
+    {
+        Console.WriteLine($"Loglama işlemi Ana Merkez:{logStr}");
     }
 }
 
 #endregion
 
-#region Dependency Inversion kullanılmış hali
-/// Çözülmüş hali 
-/// Kendi içerisinde daha alt bir class'a bağımlı değil.
+#region Dependency Inversion ile yapsaydım ? 
+
 public class TripInfoLoggerDependency
 {
     private ILoggerDependency _logger;
+
     public TripInfoLoggerDependency(ILoggerDependency logger)
     {
         _logger = logger;
     }
-   
+
     public void Log(string logInfo)
     {
         _logger.Log(logInfo);
     }
 }
-public class TurkeyLoggerDependency: ILoggerDependency
+
+public class TurkeyLoggerDependency : ILoggerDependency
 {
     public void Log(string logStr)
     {
-        Console.WriteLine("Loglama işlemi Turkey");
-    }
-
-    public void LocalStorageLog(string logStr)
-    {
-        Console.WriteLine("Local Storage Loglama işlemi Turkey");
+        Console.WriteLine($"Loglama işlemi Türkiye'm:{logStr}");
     }
 }
 
@@ -109,7 +122,24 @@ public class LogStorageLoggerDependency : ILoggerDependency
 {
     public void Log(string logStr)
     {
-        Console.WriteLine("Local Storage Loglama işlemi Turkey");
+        Console.WriteLine($"Loglama işlemi Ana Merkez:{logStr}");
+    }
+}
+
+
+public class GermanyStorageLoggerDependency : ILoggerDependency
+{
+    public void Log(string logStr)
+    {
+        Console.WriteLine($"Loglama işlemi Almanya:{logStr}");
+    }
+}
+
+public class RussiaStorageLoggerDependency : ILoggerDependency
+{
+    public void Log(string logStr)
+    {
+        Console.WriteLine($"Loglama işlemi Rusya:{logStr}");
     }
 }
 public interface ILoggerDependency
@@ -117,70 +147,84 @@ public interface ILoggerDependency
     void Log(string logStr);
 }
 
+
 #endregion
 
-#region Eski Solutionlarda olan alan
-/// <summary>
-/// Burdan sonrası zaten diğer solutionlarla benzer.
-/// 
-/// </summary>
-public class Renault : BaseCar, IEmailSendable
+
+
+#region Önceki yapılanlar 
+#region Renault 
+public class Renault : BaseCar, ISmsSendable, IMailSendable
 {
     public override double GetCostPerKM()
     {
         return 1.5;
     }
-    public void SendInfoDriverMail(DriverInfo driver)
+
+    public void SendInfoDriverEmail(DriverInfo mail)
     {
-        if (!string.IsNullOrEmpty(driver.EmailAddress))
-        {
-            SendMail();
-        }
+        Console.WriteLine("Mail gönderimi sağandı.");
+    }
+
+    public void SendInfoDriverSms(DriverInfo sms)
+    {
+        Console.WriteLine("Sms gönderimi sağandı.");
     }
 }
+#endregion
 
-
-public class Nissan : BaseCar, ISMSSendable, IEmailSendable, IMultipleEmailSendable
+#region Nissan
+public class Nissan : BaseCar, ISmsSendable, IMailSendable, IMultipleEmailSendable
 {
     public override double GetCostPerKM()
     {
         return 2.5;
     }
 
-    public void SendInfoDriverSms(DriverInfo driver)
+    public void SendInfoDriverEmail(DriverInfo mail)
     {
-        if (!string.IsNullOrEmpty(driver.Telephone))
-        {
-            SendSms();
-        }
+        Console.WriteLine("Mail gönderimi sağandı.");
     }
 
-    public void SendInfoDriverMail(DriverInfo driver)
+    public void SendInfoDriverSms(DriverInfo sms)
     {
-        if (!string.IsNullOrEmpty(driver.EmailAddress))
-        {
-            SendMail();
-        }
+        Console.WriteLine("Sms gönderimi sağandı.");
     }
 
-    public void SendInfoEmailToDrivers(List<DriverInfo> drivers)
+    public void SendInfoEmailToDrivers(List<DriverInfo> mails)
     {
-        foreach (var driver in drivers)
+        foreach (var mail in mails)
         {
-            SendInfoDriverMail(driver);
+            SendInfoDriverEmail(mail);
         }
+
+    }
+}
+#endregion
+
+#region Yakıt Giderlerini Hesaplayan Bir Class
+
+public class FuelCostCalculator
+{
+    public double Calculate(BaseCar car)
+    {
+        return car.RoadmKm * car.GetCostPerKM();
     }
 }
 
+#endregion
+
+
+#region Base Car Abstract Class'ının oluşturulması
 public abstract class BaseCar
 {
-    public int RoadKm { get; set; }
+    public double RoadmKm { get; set; }
 
     public abstract double GetCostPerKM();
 
     public void Go()
     {
-        Console.WriteLine("Araba  gidiyor.");
+        Console.WriteLine("Araba gidiyor..");
     }
 
     public void Stop()
@@ -190,60 +234,42 @@ public abstract class BaseCar
 
     public void SendMail()
     {
-        Console.WriteLine("Mail gönderildi.");
+        Console.WriteLine($"Mail gönderildi. Mail Adresi");
     }
 
     public void SendSms()
     {
-        Console.WriteLine("Mail gönderildi.");
-    }
-
-    public void SendInfoDriver(DriverInfo driver)
-    {
-        if (!string.IsNullOrEmpty(driver.EmailAddress))
-        {
-            SendMail();
-        }
-
-        if (!string.IsNullOrEmpty(driver.Telephone))
-        {
-            SendSms();
-        }
+        Console.WriteLine("SMS Gönderildi");
     }
 }
-
-//Yakıt Giderini hesaplayan Class
-public class FuelCostClaculator
-{
-    public double Calculate(BaseCar car)
-    {
-        return car.RoadKm * car.GetCostPerKM();
-    }
-}
-
-
 
 public class DriverInfo
 {
-    public string EmailAddress { get; set; }
+    public string EmailAdress { get; set; }
     public string Telephone { get; set; }
 }
 
-
-//Bir interface oluşturalım, mail gönderimi işlemi için
-public interface IEmailSendable
+#region Interface Tanımlamları
+#region SMS Interface'i tanımlaması
+public interface ISmsSendable
 {
-    void SendInfoDriverMail(DriverInfo driver);
-
+    void SendInfoDriverSms(DriverInfo sms);
 }
+#endregion
 
-public interface ISMSSendable
+#region Mail Interface
+
+public interface IMailSendable
 {
-    void SendInfoDriverSms(DriverInfo drivers);
+    void SendInfoDriverEmail(DriverInfo mail);
+
 }
 
 public interface IMultipleEmailSendable
 {
-    void SendInfoEmailToDrivers(List<DriverInfo> driver);
+    void SendInfoEmailToDrivers(List<DriverInfo> mails);
 }
+#endregion
+#endregion
+#endregion
 #endregion
