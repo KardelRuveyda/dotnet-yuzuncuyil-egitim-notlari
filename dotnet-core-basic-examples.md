@@ -1,20 +1,5 @@
 # Temel örneklerle Dotnet Core
 
-## Entity Framework Core Nedir?
-Entity Framework Core (EF Core), Microsoft tarafından geliştirilen, .NET platformu için bir nesne ilişkisel eşleme (Object-Relational Mapping, ORM) framework'üdür. ORM, veritabanıyla nesne tabanlı programlama arasındaki uyumu sağlamak amacıyla kullanılır. Entity Framework Core, özellikle .NET Core ve .NET 5 gibi çeşitli .NET platformlarında çalışabilen hafif ve açık kaynaklı bir ORM çözümüdür.
-
-Entity Framework Core, .NET uygulamalarının veritabanlarıyla etkileşimde bulunmasını kolaylaştırmak için kullanılır. Bu framework sayesinde, veritabanındaki tabloları, sütunları ve ilişkileri nesne modelleriyle eşleştirebilirsiniz. Bu sayede, veritabanı işlemlerini SQL sorguları yazmak yerine nesne yönelimli bir yaklaşımla gerçekleştirebilirsiniz.
-
-_EF Core'un temel özellikleri arasında şunlar bulunur:_
-
-- **Code First Yaklaşımı:** Veritabanı şemalarını kodunuzdaki sınıflara dayalı olarak oluşturmanızı sağlar. Kod tarafında sınıfları tanımlayarak, EF Core otomatik olarak veritabanını oluşturabilir.
-- **Migration Desteği:** Veritabanındaki şemada yapılan değişiklikleri takip edebilmeniz ve bu değişiklikleri uygulayabilmeniz için migration (geçiş) mekanizması sunar.
-- **LINQ Desteği:** LINQ (Language Integrated Query) kullanarak veritabanına sorgular yazabilirsiniz. Bu, SQL sorguları yazmak yerine daha okunabilir ve yönetilebilir sorgular oluşturmanıza olanak tanır.
-- **Çeşitli Veritabanı Motorları Desteği:** EF Core, çeşitli veritabanı motorlarına uyumlu olarak çalışabilir. Microsoft SQL Server, PostgreSQL, MySQL, SQLite gibi popüler veritabanlarına destek sağlar.
-- **Performans İyileştirmeleri:** EF Core, performansı artırmak ve gereksiz sorguları önlemek için çeşitli optimizasyonlar içerir.
-
-Entity Framework Core, geliştiricilere veritabanı işlemlerini basitleştirmek ve daha az kod yazarak veritabanıyla etkileşimde bulunmalarını sağlamak için güçlü bir araç sunar.
-
 ## Adım adım Codefirst
 
 # Entity Framework Core Code First Örneği
