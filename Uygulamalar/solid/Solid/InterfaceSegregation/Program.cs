@@ -1,78 +1,90 @@
-﻿#region Kodun Çalıştırıldığı Yer
+﻿#region Kodun çalıştırıldığı yer
 Renault renault = new Renault();
-renault.SendInfoDriverMail(new DriverInfo
-{
-    Telephone = "53051531",
-    EmailAddress = "ruveyda@gmail.com"
-});
-#endregion
 
-#region Renault İşlemleri
-public class Renault : BaseCar, IEmailSendable
+CalculateTripCost();
+#region Harcanan yakıt parasını hesaplayan fonksiyon 
+void CalculateTripCost()
+{
+    var calculator = new FuelCostCalculator();
+    var cost = calculator.Calculate(new Renault());
+
+    Console.WriteLine($"Toplam Harcanan Para: {cost}");
+    Console.ReadLine();
+}
+#endregion
+#endregion
+#region Renault 
+public class Renault : BaseCar, ISmsSendable, IMailSendable
 {
     public override double GetCostPerKM()
     {
         return 1.5;
     }
-    public void SendInfoDriverMail(DriverInfo driver)
+
+    public void SendInfoDriverEmail(DriverInfo mail)
     {
-        if (!string.IsNullOrEmpty(driver.EmailAddress))
-        {
-            SendMail();
-        }
+        Console.WriteLine("Mail gönderimi sağandı.");
     }
 
-    //Renault bu fonksiyonu desteklemek istemiyorsa ne yapacağım ? :( 
-    //İşte burada Interface Segregation devreye girecekk :)
+    public void SendInfoDriverSms(DriverInfo sms)
+    {
+        Console.WriteLine("Sms gönderimi sağandı.");
+    }
 }
 #endregion
 
-
-#region Nissan İşlemleri
-public class Nissan : BaseCar, ISMSSendable, IEmailSendable, IMultipleEmailSendable
+#region Nissan
+public class Nissan : BaseCar, ISmsSendable, IMailSendable,IMultipleEmailSendable
 {
     public override double GetCostPerKM()
     {
         return 2.5;
     }
 
-    public void SendInfoDriverSms(DriverInfo driver)
+    public void SendInfoDriverEmail(DriverInfo mail)
     {
-        if (!string.IsNullOrEmpty(driver.Telephone))
-        {
-            SendSms();
-        }
+        Console.WriteLine("Mail gönderimi sağandı.");
     }
 
-    public void SendInfoDriverMail(DriverInfo driver)
+    public void SendInfoDriverSms(DriverInfo sms)
     {
-        if (!string.IsNullOrEmpty(driver.EmailAddress))
-        {
-            SendMail();
-        }
+        Console.WriteLine("Sms gönderimi sağandı.");
     }
 
-    public void SendInfoEmailToDrivers(List<DriverInfo> drivers)
+    public void SendInfoEmailToDrivers(List<DriverInfo> mails)
     {
-        foreach (var driver in drivers)
+        foreach (var mail in mails)
         {
-            SendInfoDriverMail(driver);
+            SendInfoDriverEmail(mail);
         }
+        
+    }
+}
+#endregion
+
+#region Yakıt Giderlerini Hesaplayan Bir Class
+
+public class FuelCostCalculator
+{
+    public double Calculate(BaseCar car)
+    {
+        return car.RoadmKm * car.GetCostPerKM();
     }
 }
 
 #endregion
 
-#region BaseCar
+
+#region Base Car Abstract Class'ının oluşturulması
 public abstract class BaseCar
 {
-    public int RoadKm { get; set; }
+    public double RoadmKm { get; set; }
 
     public abstract double GetCostPerKM();
 
     public void Go()
     {
-        Console.WriteLine("Araba  gidiyor.");
+        Console.WriteLine("Araba gidiyor..");
     }
 
     public void Stop()
@@ -82,61 +94,41 @@ public abstract class BaseCar
 
     public void SendMail()
     {
-        Console.WriteLine("Mail gönderildi.");
+        Console.WriteLine($"Mail gönderildi. Mail Adresi");
     }
 
     public void SendSms()
     {
-        Console.WriteLine("Mail gönderildi.");
+        Console.WriteLine("SMS Gönderildi");
     }
 }
 
-#endregion
-
-
-#region Yakıt Giderini Hesaplayan
-//Yakıt Giderini hesaplayan Class
-public class FuelCostClaculator
-{
-    public double Calculate(BaseCar car)
-    {
-        return car.RoadKm * car.GetCostPerKM();
-    }
-}
-
-#endregion
-
-#region Sürücü Bilgileri
 public class DriverInfo
 {
-    public string EmailAddress { get; set; }
+    public string EmailAdress { get; set; }
     public string Telephone { get; set; }
 }
-#endregion
 
-
-#region Email İçin Interface
-//Bir interface oluşturalım, mail gönderimi işlemi için
-public interface IEmailSendable
+#region Interface Tanımlamları
+#region SMS Interface'i tanımlaması
+public interface ISmsSendable
 {
-    void SendInfoDriverMail(DriverInfo driver);
-
-    //Yarın bir gün yeni bir metot eklerlerse Interface Segregation bozulur.
-}
-
-#endregion
-
-#region SMS için interface
-//Bir interface oluşturalım, sms gönderimi işlemi için
-public interface ISMSSendable
-{
-    void SendInfoDriverSms(DriverInfo drivers);
+    void SendInfoDriverSms(DriverInfo sms);
 }
 #endregion
 
-#region MultipleEmailSendable
+#region Mail Interface
+
+public interface IMailSendable
+{
+    void SendInfoDriverEmail(DriverInfo mail);
+   
+}
+
 public interface IMultipleEmailSendable
 {
-    void SendInfoEmailToDrivers(List<DriverInfo> driver);
+    void SendInfoEmailToDrivers(List<DriverInfo> mails);
 }
+#endregion
+#endregion
 #endregion
