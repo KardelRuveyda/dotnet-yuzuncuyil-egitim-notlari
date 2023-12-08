@@ -1,43 +1,45 @@
-﻿
-// Bağımlılığı temsil eden bir arayüz
-interface IMessageService
+﻿using System;
+
+// ILogger arayüzü, loglama işlemleri için bir şablon belirler.
+public interface ILogger
 {
-    void SendMessage(string message);
+    void Log(string message);
 }
 
-// Bağımlılığın somut bir implementasyonu
-class EmailService : IMessageService
+// FileLogger, ILogger arayüzünü implemente ederek loglama işlemini dosyaya yapar.
+public class FileLogger : ILogger
 {
-    public void SendMessage(string message)
+    public void Log(string message)
     {
-        Console.WriteLine($"Email gönderildi: {message}");
+        Console.WriteLine($"Log to file: {message}");
     }
 }
 
-// Bağımlılığın somut bir implementasyonu
-class SMSService : IMessageService
+// ConsoleLogger, ILogger arayüzünü implemente ederek loglama işlemini konsola yapar.
+public class ConsoleLogger : ILogger
 {
-    public void SendMessage(string message)
+    public void Log(string message)
     {
-        Console.WriteLine($"SMS gönderildi: {message}");
+        Console.WriteLine($"Log to console: {message}");
     }
 }
 
-// Bağımlılıkları enjekte edeceğimiz sınıf
-class NotificationService
+// UserService, bir ILogger bağımlılığına sahip olan bir servis sınıfıdır.
+public class UserService
 {
-    private readonly IMessageService messageService;
+    private readonly ILogger _logger;
 
-    // Dependency Injection ile IMessageService'yi bekleyen bir constructor
-    public NotificationService(IMessageService messageService)
+    // Bağımlılık enjeksiyonu ile ILogger örneği alınır.
+    public UserService(ILogger logger)
     {
-        this.messageService = messageService;
+        _logger = logger;
     }
 
-    public void SendNotification(string message)
+    public void SaveUser(string username)
     {
-        // Bağımlılığı kullan
-        messageService.SendMessage(message);
+        // Kullanıcı kaydedildiği zaman loglama işlemi yapılır.
+        _logger.Log($"User saved: {username}");
+        // Gerçek kullanıcı kaydetme işlemleri burada gerçekleştirilir.
     }
 }
 
@@ -45,16 +47,28 @@ class Program
 {
     static void Main()
     {
-        // Bağımlılıkları enjekte etmek için uygun servisleri oluştur
-        IMessageService emailService = new EmailService();
-        IMessageService smsService = new SMSService();
+        // Dependency Injection ile FileLogger kullanarak UserService örneği oluşturuluyor.
+        var userServiceWithFileLogger = new UserService(new FileLogger());
+        userServiceWithFileLogger.SaveUser("John Doe");
 
-        // Bağımlılıkları enjekte ederek NotificationService'i oluştur
-        NotificationService emailNotificationService = new NotificationService(emailService);
-        NotificationService smsNotificationService = new NotificationService(smsService);
+        Console.WriteLine("----------------------");
 
-        // Farklı bağımlılıkları kullanarak bildirim gönder
-        emailNotificationService.SendNotification("Merhaba, bu bir email bildirimdir.");
-        smsNotificationService.SendNotification("Merhaba, bu bir SMS bildirimdir.");
+        // Dependency Injection ile ConsoleLogger kullanarak UserService örneği oluşturuluyor.
+        var userServiceWithConsoleLogger = new UserService(new ConsoleLogger());
+        userServiceWithConsoleLogger.SaveUser("Jane Doe");
     }
 }
+
+/*
+Yukarıdaki örnekte ILogger arayüzü loglama işlemleri için bir şablon belirler. 
+    FileLogger ve ConsoleLogger sınıfları bu arayüzü implemente eder ve kendi loglama 
+    yöntemlerini tanımlarlar.
+
+UserService sınıfı, bir ILogger bağımlılığına sahiptir ve bu bağımlılık constructor 
+aracılığıyla enjekte edilir. Bu sayede, UserService sınıfı loglama işlemleri için 
+herhangi bir ILogger implementasyonuyla çalışabilir.
+
+Main metodu içinde, UserService sınıfının iki farklı örneği oluşturuluyor ve
+her birine farklı bir ILogger implementasyonu enjekte ediliyor. Bu şekilde 
+Dependency Injection sayesinde, UserService sınıfı loglama işlemleri için esnek ve
+değiştirilebilir hale gelir.*/
