@@ -1,19 +1,24 @@
 ﻿#region Çalıştırılması
-Customer customer = new Customer { City = "Trabzon", FirstName = "Kardel", Id = 1, LastName = "Çetin" };
-Console.WriteLine(customer.FirstName);
+Customer customer1 = new Customer
+{
+    City = "Lüleburgaz",
+    FirstName = "Hatice",
+    LastName = "Beyaz"
+};
 
+Console.WriteLine(customer1.FirstName);
 
-//Customer customer2 = customer.Clone();
-//Customer customer2 = (Customer)customer;
+Customer customer2 = new Customer();
+customer2.LastName = "Çetin";
 
-//Customer 1 ve Customer2 aynı nesneler değil
-//Aynı referansları tutmuyor.
-//Yeni referans oluşturma maliyetinden kurtarılır. 
-var customer2 = customer.Clone();
-customer2.FirstName = "Rüveyda";
+Console.WriteLine(customer2.LastName);
 
-Console.WriteLine(customer.FirstName);
-Console.WriteLine(customer2.FirstName);
+var customer3 = customer1.Clone();
+customer3.FirstName = "Kardel";
+
+//İkisi farklıdır.
+Console.WriteLine(customer3.FirstName);
+Console.WriteLine(customer1.FirstName);
 
 /*
     Bu bölümde, customer nesnesinin bir kopyası olan customer2 oluşturuluyor. 
