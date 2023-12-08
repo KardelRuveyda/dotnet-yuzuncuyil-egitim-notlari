@@ -1,4 +1,5 @@
-# Entity Framework Core Code First Örneği
+# Dotnet Core Best Practices
+## Entity Framework Core Code First Örneği
 
 Bu proje, Entity Framework Core'un Code First yaklaşımını kullanarak basit bir öğrenci-sınıf ilişkisini simgeliyor.
 
