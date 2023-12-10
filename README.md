@@ -14,8 +14,8 @@ Techcareer.net'in düzenlediği Cumhuriyet'in 100. Yılında Kadınlara Özel Ba
 - [x] [SOLID](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/blob/master/solid.md)
 - [x] [Design Patterns](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/blob/master/designpatterns.md)
 - [x] [Dotnet Ekosistemi](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/blob/master/dotnetekosistemi.md)
-- [ ] [Dotnet Core Temelleri](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/blob/master/dotnetcore-basic.md)
-- [ ] [Dotnet Core Best Practices](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/blob/master/dotnet-core-best-practices.md)
+- [x] [Dotnet Core Temelleri](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/blob/master/dotnetcore-basic.md)
+- [x] [Dotnet Core Best Practices](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/blob/master/dotnet-core-best-practices.md)
 - [ ] [Monolith vs Microservices](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/blob/master/monolith-microservices.md)
 
    
