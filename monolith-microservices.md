@@ -119,7 +119,10 @@ Mikroservisler mimarisi aslında bir mimari değildir. SOA da servislerin birbir
 **Mikroservislerin Avantajları**
 
 - Çok dilli mimari
-- Kolay ölçeklendirme 
+- Kolay ölçeklendirme
+- Daha iyi bir takım yönetimi
+- Yenilik yapmak daha kolay ( Farklı teknolojiler arası geçiş daha kolayy :) ) 
+- 
 
 **Mikroservislerin Dezavantajları**
 
