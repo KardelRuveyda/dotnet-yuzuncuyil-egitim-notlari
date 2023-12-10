@@ -71,6 +71,20 @@ Client üzerinden gelen istekleri duruma göre sunucular arasında paylaşmayı 
 
 #### SOA Architecture
 
+Servislerin ayrı ayrı tasarlanıp bir yapı oluşturmasını sağlar. Monolitik mimaride bir proje içerisinde projenin içerisinde servislerimiz bulunuyordu. Bunların her biri projenin bir controller dosyası olarak geçiyordu. Bunları bunun içerisinden monolitik mimaride çıkarabilmek mümkün değildir. O yüzden ilk hedeflediği nokta **"Servisleri ayırmak!"**.
+
+**Peki bunların kontrollerini nasıl yapacağım ?**
+
+- Özet olarak servislerin ayrı ayrı tasarlanıp bir yapı oluşturmasını sağlar.
+- Yapılar birbirinden bağımsız olarak çalışabilirler. ( Loose Coupling. ) Loose Coupling düşük bağ anlamına geliyor . Birbirleriyle iletişimde olan servisler de olabilir, iletişimde olmayan servisler de olabilir.
+- Birden çok sistemin yer aldığı yapılarda kullanılır.
+- Kendi içerisinde birçok bileşeni vardır. ( Policies, Contracts, Sevices ve daha fazlası. ) Bu bileşenler oldukça yer kaplıyor.
+- Dağıtık yazılım sistemlerinin kalitelerini arttırmayı hedefler. ( Tekrar Kullanılabirlik, Uyumluluk, Bakım Yeteneği) . Servisleri bir yapı oluşturmak için kullanılan bir mimaridir. Bu servisler kendi aralarında iletişim halinde olabilirler. Client üzerinden bir servise erişmek isterseniz direkt erişemezsiniz. Bunun için Enterprise Bus Service yapısı kullanılır. Bu yapıda clienttan gelen isteğe göre hangi servise gitmek istiyorsa onu ayarlar. Kendi içerisinde ve dış dünyayla kurdukları iletişim için web servislerden yararlanılmaktadır. Bu web servisler SOAP, WDS gibi yapılardan yararlanılabilir.
+
+**SOA Avantajları nelerdir?**
+
+**SOA Dezavantajları nelerdir?**
+
 #### Microservices Architecture
 
 
