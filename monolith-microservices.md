@@ -121,7 +121,7 @@ Mikroservisler mimarisi aslında bir mimari değildir. SOA da servislerin birbir
 - Çok dilli mimari
 - Kolay ölçeklendirme
 - Daha iyi bir takım yönetimi
-- Yenilik yapmak daha kolay ( Farklı teknolojiler arası geçiş daha kolayy :) Yani yani çalışmak istemediğiniz teknolojiyle çalışırken "Hadi yüreğim ha gayret, hele sıkı dur hele sabret. Başını eğme dik tut. " modunda çalışmanıza gerek yok :)
+- Yenilik yapmak daha kolay ( Farklı teknolojiler arası geçiş daha kolayy :) Yani yani çalışmak istemediğiniz teknolojiyle çalışırken **"Hadi yüreğim ha gayret, hele sıkı dur hele sabret. Başını eğme dik tut. "** modunda çalışmanıza gerek yok :)
 - Mikroservislerin kendine ait veri tabanları vardır. 
 - Daha odaklı yapı ve ölçeklendirmesi bulunur. Ölçeklendirmede monolitikte olduğu gibi sunucuda ölçeklendirme yapıyorsunuz. Komple projeyi ölçeklendirmiş oluyorsunuz. Ama mikroservis projelerinde sadece ölçeklendirmek istediğim ve gerekli olan alanı ölçeklendirebiliyorum. Örneğin, Twitter'ın ana sayfası ayrı bir mikroservis, profil düzenleme kısımları ayrı bir mikroservis olsun. Ben anasayfada daha çok trafik aldığım için haliyle sadece ana sayfa alanını ölçeklendirmek isteyebilirim. Mikroservisler bunu rahatlıkla yapmanızı sağlarlar.
 - Implemente edilirken diğer servisler etkilenmezler.
@@ -132,7 +132,9 @@ Mikroservisler mimarisi aslında bir mimari değildir. SOA da servislerin birbir
 - Implementasyon kolay değildir. ( Network Calls, Service Discovery)
 - Debug kolay değildir. ( Nerde hata olduğunu görebilmek için monitoring sistemler geliştirmeniz gerekebilir. )
 - Fault Management(Hata yönetimi) kolay değildir. ( Mikroservisin büyümesiyle beraber. )
-  
+
+
+  #### Kaynakça
 
 
 
