@@ -134,8 +134,13 @@ Mikroservisler mimarisi aslında bir mimari değildir. SOA da servislerin birbir
 - Fault Management(Hata yönetimi) kolay değildir. ( Mikroservisin büyümesiyle beraber. )
 
 
+Google,Facebook gibi şirketlerin altyapısında mikroservislerin kullanıldığını unutmayalım.  
+
+
   #### Kaynakça
-
-
+- Building Microservices, 2nd Edition
+- https://www.youtube.com/watch?v=IGUJKGskaOE
+- https://www.youtube.com/watch?v=oMlzcfMPEJc
+  
 
 
