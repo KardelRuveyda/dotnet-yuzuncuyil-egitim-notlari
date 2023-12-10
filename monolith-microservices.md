@@ -1,4 +1,4 @@
-# Monolith ve Microservices
+![image](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/assets/33912144/305fe91d-1ac4-463a-bb47-e476b3083538)# Monolith ve Microservices
 
 Mikroservisler mimarisi yaklaşık 5-10 yıldan beri adını duyuran ve oldukça büyük şirketlerin iç yapılarında kullanmayı tercih ettikleri bir mimaridir. Mikroservis mimarisini daha iyi anlayabilmek için öncelikle diğer mimarileri biraz incelemek gerekmektedir.
 
@@ -101,6 +101,33 @@ Servislerin ayrı ayrı tasarlanıp bir yapı oluşturmasını sağlar. Monoliti
 - Yüksek Bant Genişliği ( Oldukça büyük bir bant genişliğine ihtiyaç olabilir, bu da sunucuyu beraberinde getiriyor. )
 
 #### Microservices Architecture
+
+Mikroservisler mimarisi aslında bir mimari değildir. SOA da servislerin birbirinden ayrılmasını hedefleyen bir mimaride yazmayı bahsetmiştik. Mikroservisin de amacı farklı değil. Mikroservislerin de amacı büyük servisleri küçük serviscikler halinde gerçekleşmektir. O nedenle aslında SOA'nın bir yorumudur. Bir kalıba sokulmuş bir mimari değildir. 
+
+- Her bir servis kendine ait bir dünyada çalışır. Soa'da bir sunucu üzerinde servisleri ayırıyorduk. Ancak mikroservislerde her bir servis kendi sunucusunda çalışacak. ( Server Stack )
+- Kendine ait veri tabanları vardır. (Ee yok artık, kremasına bandık :-D )
+- Sadece 1 küçük işi çok iyi yapması gerekir. ( Biraz I shaped misin acaba ? :) )
+- Her bir farklı sunucu olursa nasıl iletişime geçilecek ? Api Gateway üzerinden dış ve iç dünyaya açılırlar. Gateway bir geçit bir kapı anlamına gelir. Bunu kod üzerinde de yapabilirsiniz. Ya da Reverse Proxy ile de yapabilirsiniz.
+- Herhangi bir teknoloji ve dile ait bir kısıtlama olunamaz. ( İstersen A sunucusunda Ruby ve Mongo, diğerinde Dotnet ve Postgre kullanabilirsin.
+- Staless yapılardır. ( Mikroservisin kendi sunucusu kendi veri tabanı vardır. Sunucu üzerinde bağımlı, sunucuya yazdığı bir dosya olmamalı. )
+- Kolay ölçeklendirilebilir. (Dikey(gerek yok), yatay. ) Dikeye ihtiyacınız yok çünkü bir servisi gidip bir sunucu içerisine bir proje içerisine koyduğunuzda minimal anlamda bir küçük sunucu işinizi görebilir.
+- Şematik olarak bağtığınızda Api Gateaway'in yaptığı şey ona gelen istekleri alıyor ve uygun sunuculara gönderiyor. Gönderdiğiniz Post ise bir JSON bilgisi gönderiyor. Api Gateaway de Client'a bu JSON'u gönderiyor.
+- Api Gateaway ve mikroservisler arasındaki iletişim JSON ile gerçekleşmektedir. Ancak bunu siz belirleyebilirsiniz. Daha kolay ve hızlı gerçekleştirebilirsiniz. Bu yüzden JSON döndüren servislerin hangi dilde yazıldığı ve hangi veri tabanını kullandığı hiç önemli değildir. Bu sayede hem servisleri ayırabilmiş olduk hem de farklı teknolojiler kullanabileceğini öğrenmiş olduk.
+
+**Mikroservislerin Avantajları**
+
+- Çok dilli mimari
+- Kolay ölçeklendirme 
+
+**Mikroservislerin Dezavantajları**
+
+
+
+
+
+![image](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/assets/33912144/974b2648-8756-47b6-b53f-d7d6792b9b6a)
+
+
 
 
 
