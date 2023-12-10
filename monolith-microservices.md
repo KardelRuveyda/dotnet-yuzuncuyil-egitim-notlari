@@ -127,8 +127,6 @@ Mikroservisler mimarisi aslında bir mimari değildir. SOA da servislerin birbir
 
 
 
-![image](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/assets/33912144/974b2648-8756-47b6-b53f-d7d6792b9b6a)
-
 
 
 
