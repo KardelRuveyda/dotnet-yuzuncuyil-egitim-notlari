@@ -1,4 +1,4 @@
-![image](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/assets/33912144/305fe91d-1ac4-463a-bb47-e476b3083538)# Monolith ve Microservices
+# Monolith ve Microservices
 
 Mikroservisler mimarisi yaklaşık 5-10 yıldan beri adını duyuran ve oldukça büyük şirketlerin iç yapılarında kullanmayı tercih ettikleri bir mimaridir. Mikroservis mimarisini daha iyi anlayabilmek için öncelikle diğer mimarileri biraz incelemek gerekmektedir.
 
@@ -113,6 +113,8 @@ Mikroservisler mimarisi aslında bir mimari değildir. SOA da servislerin birbir
 - Kolay ölçeklendirilebilir. (Dikey(gerek yok), yatay. ) Dikeye ihtiyacınız yok çünkü bir servisi gidip bir sunucu içerisine bir proje içerisine koyduğunuzda minimal anlamda bir küçük sunucu işinizi görebilir.
 - Şematik olarak bağtığınızda Api Gateaway'in yaptığı şey ona gelen istekleri alıyor ve uygun sunuculara gönderiyor. Gönderdiğiniz Post ise bir JSON bilgisi gönderiyor. Api Gateaway de Client'a bu JSON'u gönderiyor.
 - Api Gateaway ve mikroservisler arasındaki iletişim JSON ile gerçekleşmektedir. Ancak bunu siz belirleyebilirsiniz. Daha kolay ve hızlı gerçekleştirebilirsiniz. Bu yüzden JSON döndüren servislerin hangi dilde yazıldığı ve hangi veri tabanını kullandığı hiç önemli değildir. Bu sayede hem servisleri ayırabilmiş olduk hem de farklı teknolojiler kullanabileceğini öğrenmiş olduk.
+
+![image](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/assets/33912144/305fe91d-1ac4-463a-bb47-e476b3083538)
 
 **Mikroservislerin Avantajları**
 
