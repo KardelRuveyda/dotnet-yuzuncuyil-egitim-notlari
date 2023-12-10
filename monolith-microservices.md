@@ -21,11 +21,11 @@ Sadece sunucu kısmını düşünelim, bu sunucu kısmında neler var ?
 
 Presentation Layer katmanı adından da anlayabileceğimiz gibi sunum katmanıdır. Kullanıcının gördüğü kodları oluşturduğunuz durumdur. Yani User Interfacedir.
 
-**- Business Layer**
+- **Business Layer**
   
 Bizim normalde mantıksal işlemleri yaptığımız yerdir. Açıkçası kodları yazdığımız bölümdür. Clienttan bir istek geldiğinde Business Layer içerisinde işlerin yapılma işlemi gerçekleşir. Ancak Business kısmında veri tabanına bağlanmamızı gerektiren işlemler olursa bu kısımda Data Access Layer içerisinde bu işlemi gerçekleştirir. 
 
-**- Data Access Layer**
+- **Data Access Layer**
 
 veri tabanına bağlanma işlemleri için ise bu katman kullanılır. Modellerle beraber veri tabanına atılır ve  buradan alınan bilgiler Business katmanına aktarılır. Oradan da Presentation Layer'a aktarılarak kullanıcıların görmeleri sağlanır. 
 
