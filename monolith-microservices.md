@@ -1,4 +1,4 @@
-# Monolith ve Microservices
+# Monolitik Mimari Nedir? SOA Nedir? Mikroservis Mimarisi nedir?
 
 Mikroservisler mimarisi yaklaşık 5-10 yıldan beri adını duyuran ve oldukça büyük şirketlerin iç yapılarında kullanmayı tercih ettikleri bir mimaridir. Mikroservis mimarisini daha iyi anlayabilmek için öncelikle diğer mimarileri biraz incelemek gerekmektedir.
 
