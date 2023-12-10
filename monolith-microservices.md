@@ -1,6 +1,6 @@
 # Monolitik Mimari Nedir? SOA Nedir? Mikroservis Mimarisi nedir?
 
-Mikroservisler mimarisi yaklaşık 5-10 yıldan beri adını duyuran ve oldukça büyük şirketlerin iç yapılarında kullanmayı tercih ettikleri bir mimaridir. Mikroservis mimarisini daha iyi anlayabilmek için öncelikle diğer mimarileri biraz incelemek gerekmektedir.
+Mikroservisler mimarisi, son 5-10 yıl içerisinde adından sıkça söz ettiren ve genellikle büyük şirketlerin iç yapılarında tercih ettiği bir mimaridir. Bu mimariyi daha iyi anlayabilmek için öncelikle diğer mimarilere göz atmak faydalı olacaktır.
 
 ### 1- Monolithic Architecture
 ### 2- SOA Architecture
@@ -8,9 +8,7 @@ Mikroservisler mimarisi yaklaşık 5-10 yıldan beri adını duyuran ve oldukça
 
 #### Monolithic Architecture
 
-İsimleme olarak bilmeseniz de aslında Monolitik mimariyi günlük projelerinizde kullanıyor olabilirsiniz. Clientlarınız olduğunu düşünün(sunucuya istekleri atan ) ve sunucunuz var . Bu sunucunuz da bir databaseye bağlanıyor. Örneğin Twitter gibi bir web sitesinde hem mobilde hem de webde çalışma düzenleri var. Siz gidip bir tane postu görmek istediğinizde sunucuya bunun isteğini gönderirsiniz. Aynı şekilde resim veya video görüntlemek için de bu istekleri sunucuya gönderirsiniz. Bu sunucu üzerinde çalışan proje bu veriyi getirebilmek için bunu databaseye sorması gerekir ve veri tabanına gider. Veri tabanından gelen datayla birlikte ekranda postları,iletileri vb göstermiş oluyor. Bu yapı da monolitik mimari olarak geçmektedir. Özetle bir proje üzerinden tüm aksiyonları ürettiğiniz bir proje mimarisi yapısıdır. 
-
-Sadece sunucu kısmını düşünelim, bu sunucu kısmında neler var ?
+İsimleme olarak bilmeseniz de aslında Monolitik mimariyi günlük projelerinizde kullanıyor olabilirsiniz. Clientlarınız olduğunu düşünün(sunucuya istekleri atan ) ve sunucunuz var . Bu sunucunuz da bir databaseye bağlanıyor. Örneğin Twitter gibi bir web sitesinde hem mobilde hem de webde çalışma düzenleri var. Siz gidip bir tane postu görmek istediğinizde sunucuya bunun isteğini gönderirsiniz. Aynı şekilde resim veya video görüntülemek için de bu istekleri sunucuya gönderirsiniz. Bu sunucu üzerinde çalışan proje bu veriyi getirebilmek için bunu veri tabanına sorması gerekir ve veri tabanına gider. Veri tabanından gelen datayla birlikte ekranda postları,iletileri vb göstermiş olur. Bu yapı da monolitik mimari olarak geçmektedir. Özetle bir proje üzerinden tüm aksiyonları ürettiğiniz bir proje mimarisi yapısıdır. ( Tabii ki Twitter Monolitik bir mimariye sahiptir demiyoruz. Sadece örnek verdim. :))
 
 **Monolitik mimari de sizin sunucunuzda 3 adet katman vardır.**
 
@@ -27,21 +25,20 @@ Bizim normalde mantıksal işlemleri yaptığımız yerdir. Açıkçası kodlar�
 
 - **Data Access Layer**
 
-veri tabanına bağlanma işlemleri için ise bu katman kullanılır. Modellerle beraber veri tabanına atılır ve  buradan alınan bilgiler Business katmanına aktarılır. Oradan da Presentation Layer'a aktarılarak kullanıcıların görmeleri sağlanır. 
+Veri tabanına bağlanma işlemleri için ise bu katman kullanılır. Modellerle beraber veri tabanına atılır ve  buradan alınan bilgiler **Business** Katmanı'na aktarılır. Oradan da Presentation Katmanı'na aktarılarak kullanıcıların görmeleri sağlanır. 
 
 _**Bu kullanımda bir problem yok ama Twitter gibi bir yapıyı Monolith mimari de çalışırsan neler olur ?**_
 
-- Post getirmek için ana sayfaya istek atarsın. Ancak bu endpoint üzerine gelen trafik artmaya başlar. Twitter'ın ana sayfası mı yoksa sizin hesabınızın kullanıcı adınızı değiştirdiğiniz kısım mı ? Tabii ki de ana sayfa :)
-- Böyle bir durumda bu yapıyı ölçeklendirmek istersek sunucuyu dublicate etmeniz gerekebilir.
+- Post getirmek için ana sayfaya istek atarsın. Ancak bu endpoint üzerine gelen trafik artmaya başlar. Sizce Twitter'ın ana sayfası mı yoksa sizin hesabınızın kullanıcı adınızı güncellediğiniz kısım mı  daha yoğundur. ? Tabii ki de ana sayfa :) . Böyle bir durumda bu yapıyı ölçeklendirmek istersek sunucuyu dublicate etmeniz gerekebilir.
 
-_**E-Ticaret sitesi örneği üzerinden ilerleyelim;**_
+_**Bıraklım Twitter'ı bir kenara ( zaten artık Twitter bile değil, X :) ). E-Ticaret sitesi örneği üzerinden ilerleyelim;**_
 
-- Sizin bir sunucunuz olsun. Yukarıdaki gibi katmanlarınız olsun. Monolith bir uygulamanız application server içerisinde çalışıyorsa ( Java,php,c# olsun.)
-- Bu e-ticaret sitesi örneğinde birçok servisiniz olsun. (**ProductService**,**AccountingService**,**PaymentService** vb.). Bu servislerin içinden yoğun olarak trafik alan servis Productservice olsun. Kitlenmeye başlayan bu serviste veri tabanı sorgularına yetişemez oldunuz ve kaynaklar yetersiz gelmeye başladı. Bu durumda ölçeklendirmek gerekebilir. O nedenle bu kısımda sunucunun snapshotunu alıp kopyalama işlemi gerçekleştiriyorsunuz . Yani 8080 'de çalışıyorsa 8081 de çalışan bir sunucu daha oluşturuyorsunuz. Bu durumda ölçekleme gerçekleştikten sonra buradaki yük dağılımı nasıl gerçekleşir ?  Bu işlemi gerçekleştirmek için **LoadBalancer** yapısını kullanırsınız.
+- Bir sunucunuz olduğunu düşünün. Bu sunucu iiçerisinde yukarıdaki gibi katmanlarınız olsun. Monolith bir uygulamanız application server içerisinde çalışsın. ( Java,PHP veya C# olabilir.)
+- Bu e-ticaret sitesi örneğinde birçok servisiniz olduğunu da düşünün. (**ProductService**,**AccountingService**,**PaymentService** vb.). Bu servislerin içinden yoğun olarak trafik alan servis; **ProductService** olsun. Yoğunluk oldukça kitlenmeye başlayan bu serviste veri tabanı sorgularına yetişemez olursunuz ve haliyle kaynaklar yetersiz gelmeye başlar. Bu durumda ölçeklendirme yapmak gerekebilir. O nedenle bu kısımda sunucunun snapshotunu alıp kopyalama işlemi gerçekleştirilir . Yani 8080 'de çalışıyorsa 8081 de çalışan bir sunucu daha oluşturmak gerekebilir. Peki bu durumda ölçekleme gerçekleştikten sonra buradaki yük dağılımı nasıl gerçekleşir ? işte bu işlemi gerçekleştirmek için imdadımıza **LoadBalancer** yetişir.
 
 **Pekala Load Balancer nedir ?**
 
-Client üzerinden gelen istekleri duruma göre sunucular arasında paylaşmayı hedefler. Benim yoğunluğum ProductService'de olmasına rağmen tüm sunucuyu dublicate ettim. Bu da monolithic mimarideki bir dezavantajdır. :(
+Client üzerinden gelen istekleri duruma göre sunucular arasında paylaşmayı hedefler. Ancak buradaki örnekte dikkat ettiyseniz yoğunluğum **ProductService**'de olmasına rağmen tüm sunucuyu **dublicate** ettim. Bu da monolithic mimarideki bir dezavantajdır. :(
 
 ![image](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/assets/33912144/c0993a88-91d9-4e69-b852-82d8f827579e)
 
@@ -50,7 +47,7 @@ Client üzerinden gelen istekleri duruma göre sunucular arasında paylaşmayı 
 - Geliştirmesi basittir.
 - Test edilebilirliği kolaydır. Modülleri tek bir projede geliştirildiği için tabii ki daha kolaydır.
 - Deployment oldukça kolaydır çünkü tek bir projeyi deploy ediyorsunuz.
-- Ölçeklendirme oldukça kolaydır. Yatay olarak mimarinin kopyasını Load balancer arkasında çalıştırabilirsiniz. Yatay bir sunucunun kopyasını alıp yanına koymaktır. Dikey ise varolan sunucunun kaynaklarını arttırmaktır(Diskini arttırmak vb.)
+- Ölçeklendirme oldukça kolaydır. Yatay olarak mimarinin kopyasını **Load Balancer** arkasında çalıştırabilirsiniz. Yatay ölçeklendirme özetleyecek olursak, bir sunucunun kopyasını alıp yanına koymaktır. Dikey ise varolan sunucunun kaynaklarını arttırmaktır(Diskini arttırmak vb.).
 
 **Monolotik Mimari Dezavantajları Nelerdir?**
 
@@ -81,13 +78,13 @@ Servislerin ayrı ayrı tasarlanıp bir yapı oluşturmasını sağlar. Monoliti
 - Özet olarak servislerin ayrı ayrı tasarlanıp bir yapı oluşturmasını sağlar.
 - Yapılar birbirinden bağımsız olarak çalışabilirler. ( Loose Coupling. ) Loose Coupling düşük bağ anlamına geliyor . Birbirleriyle iletişimde olan servisler de olabilir, iletişimde olmayan servisler de olabilir.
 - Birden çok sistemin yer aldığı yapılarda kullanılır.
-- Kendi içerisinde birçok bileşeni vardır. ( Policies, Contracts, Sevices ve daha fazlası. ) Bu bileşenler oldukça yer kaplıyor.
-- Dağıtık yazılım sistemlerinin kalitelerini arttırmayı hedefler. ( Tekrar Kullanılabirlik, Uyumluluk, Bakım Yeteneği) . Servisleri bir yapı oluşturmak için kullanılan bir mimaridir. Bu servisler kendi aralarında iletişim halinde olabilirler. Client üzerinden bir servise erişmek isterseniz direkt erişemezsiniz. Bunun için Enterprise Bus Service yapısı kullanılır. Bu yapıda clienttan gelen isteğe göre hangi servise gitmek istiyorsa onu ayarlar. Kendi içerisinde ve dış dünyayla kurdukları iletişim için web servislerden yararlanılmaktadır. Bu web servisler SOAP, WDS gibi yapılardan yararlanılabilir.
+- Kendi içerisinde birçok bileşeni vardır. ( **Policies**, **Contracts**, **Sevices** ve daha fazlası. ). Bu bileşenler oldukça yer kaplayabilir.
+- Dağıtık yazılım sistemlerinin kalitelerini arttırmayı hedefler. ( _Tekrar Kullanılabirlik_, _Uyumluluk_, _Bakım Yeteneği_) . Servisleri bir yapı oluşturmak için kullanılan bir mimaridir. Bu servisler kendi aralarında iletişim halinde olabilirler. Client üzerinden bir servise erişmek isterseniz direkt erişemezsiniz. Bunun için **Enterprise Bus Service** yapısı kullanılır. Bu yapıda clienttan gelen isteğe göre hangi servise gitmek isteniyorsa onu ayarlar. Kendi içerisinde ve dış dünyayla kurdukları iletişim için web servislerden yararlanılmaktadır. Bu web servisler **SOAP**, **WDS** gibi yapılardan yararlanılabilir.
 
 **SOA Avantajları nelerdir?**
 
-- Servisler tekrar tekrar kullanılabilir.(Reusable) 
-- Servislerin bakım ve onarım süreçler kolaydır. Çünkü koca projeyi değiştirmiyorsunuz o yüzden monolotiğe göre daha kolaydır.
+- Servisler tekrar tekrar kullanılabilir.(**Reusable**) 
+- Servislerin bakım ve onarım süreçler kolaydır. Çünkü koca projeyi değiştirmiyorsunuz, o yüzden monolotiğe göre daha kolaydır.
 - Güvenilirlik ve dayanıklık açısından iyidir. Servisler birbirinden farklı farklı projelerle ayrılmış oldukları için böyle bir sorunla karşılaşmazsınız.
 - Up time oranları yüksektir.
 - Yatay ve dikey ölçeklendirme yapabilirsiniz.( Servisler ayrı olduğu için servis bazlı kopyalama yapabilirsiniz. )
@@ -102,17 +99,17 @@ Servislerin ayrı ayrı tasarlanıp bir yapı oluşturmasını sağlar. Monoliti
 
 #### Microservices Architecture
 
-Mikroservisler mimarisi aslında bir mimari değildir. SOA da servislerin birbirinden ayrılmasını hedefleyen bir mimaride yazmayı bahsetmiştik. Mikroservisin de amacı farklı değil. Mikroservislerin de amacı büyük servisleri küçük serviscikler halinde gerçekleşmektir. O nedenle aslında SOA'nın bir yorumudur. Bir kalıba sokulmuş bir mimari değildir. 
+Mikroservisler mimarisi aslında bir mimari değildir. SOA kısmında servislerin birbirinden ayrılmasını hedefleyen bir mimariden bahsetmiştik. Mikroservisin de amacı farklı değil. Mikroservislerin de amacı büyük servisleri **küçük serviscikler** halinde gerçekleşmektir. O nedenle aslında **SOA'nın** bir **yorumudur**. 
 
 - Her bir servis kendine ait bir dünyada çalışır. Soa'da bir sunucu üzerinde servisleri ayırıyorduk. Ancak mikroservislerde her bir servis kendi sunucusunda çalışacak. ( Server Stack )
-- Kendine ait veri tabanları vardır. (Ee yok artık, kremasına bandık :-D )
-- Sadece 1 küçük işi çok iyi yapması gerekir. ( Biraz I shaped misin acaba ? :) )
-- Her bir farklı sunucu olursa nasıl iletişime geçilecek ? Api Gateway üzerinden dış ve iç dünyaya açılırlar. Gateway bir geçit bir kapı anlamına gelir. Bunu kod üzerinde de yapabilirsiniz. Ya da Reverse Proxy ile de yapabilirsiniz.
-- Herhangi bir teknoloji ve dile ait bir kısıtlama olunamaz. ( İstersen A sunucusunda Ruby ve Mongo, diğerinde Dotnet ve Postgre kullanabilirsin.
-- Staless yapılardır. ( Mikroservisin kendi sunucusu kendi veri tabanı vardır. Sunucu üzerinde bağımlı, sunucuya yazdığı bir dosya olmamalı. )
-- Kolay ölçeklendirilebilir. (Dikey(gerek yok), yatay. ) Dikeye ihtiyacınız yok çünkü bir servisi gidip bir sunucu içerisine bir proje içerisine koyduğunuzda minimal anlamda bir küçük sunucu işinizi görebilir.
-- Şematik olarak bağtığınızda Api Gateaway'in yaptığı şey ona gelen istekleri alıyor ve uygun sunuculara gönderiyor. Gönderdiğiniz Post ise bir JSON bilgisi gönderiyor. Api Gateaway de Client'a bu JSON'u gönderiyor.
-- Api Gateaway ve mikroservisler arasındaki iletişim JSON ile gerçekleşmektedir. Ancak bunu siz belirleyebilirsiniz. Daha kolay ve hızlı gerçekleştirebilirsiniz. Bu yüzden JSON döndüren servislerin hangi dilde yazıldığı ve hangi veri tabanını kullandığı hiç önemli değildir. Bu sayede hem servisleri ayırabilmiş olduk hem de farklı teknolojiler kullanabileceğini öğrenmiş olduk.
+- Kendine ait veri tabanları vardır. (Ee yok artık, biz de abarttık ama sosunu abarttık :))
+- Sadece bir küçük işi çok iyi yapması gerekir, o işi yapabilmesi yeterlidir. Diğer işlere karışmaz. ( Aa sen biraz I Shaped misin acaba ? :) )
+- Her bir farklı sunucu olursa bu yapı nasıl iletişime geçilecek ? Tam bu kısımda **Api Gateway** burdayım be burdayım,bur-da-yım diyor ve **Api Gateway** sayesinde dış ve iç dünyaya açılma gerçekleşiyor. Gateway'i bir geçit bir kapısı olarak görebilirsiniz. Bu işlemi kod üzerinde de gerçekleştirebileceğiniz gibi **Reverse Proxy** ile de yapabilirsiniz.
+- Herhangi bir teknoloji ve dile ait bir kısıtlama olunamaz. ( İstersen A sunucusunda Ruby ve Mongo, diğerinde Dotnet ve Postgre kullanabilirsin.)
+- Staless yapılardır. ( Mikroservisin kendi sunucusu, kendi veri tabanı vardır. Sunucu üzerinde bağımlı olduğu için de sunucuya yazdığı bir dosya olmamalıdır. )
+- Kolay ölçeklendirilebilir. Bu ölçeklendirme tipinde dikeye ihtiyacınız yok çünkü bir servisi gidip bir sunucu içerisind bir proje içerisine koyduğunuzda minimal anlamda bir küçük sunucu işinizi görebilir.
+- Şematik olarak baktığınızda **Api Gateaway**'in yaptığı şey ona gelen istekleri alır ve uygun sunuculara gönderir. Gönderdiğiniz bir Product bilgisi ise bu bilgi JSON bilgisi ile gönderilir. Api Gateaway de alınan bu JSON bilgisini Client'a gönderir.
+- **Api Gateaway** ve mikroservisler arasındaki iletişim JSON ile gerçekleşmektedir. Ancak bunu siz belirleyebilirsiniz. Daha kolay ve hızlı gerçekleştirebilirsiniz. Bu yüzden JSON döndüren servislerin hangi dilde yazıldığı ve hangi veri tabanını kullandığı hiç önemli değildir. Bu sayede hem servisleri ayırabilmiş olduk hem de farklı teknolojiler kullanabileceğini öğrenmiş olduk.
 
 ![image](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/assets/33912144/305fe91d-1ac4-463a-bb47-e476b3083538)
 
