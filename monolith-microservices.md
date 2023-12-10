@@ -86,7 +86,19 @@ Servislerin ayrı ayrı tasarlanıp bir yapı oluşturmasını sağlar. Monoliti
 
 **SOA Avantajları nelerdir?**
 
+- Servisler tekrar tekrar kullanılabilir.(Reusable) 
+- Servislerin bakım ve onarım süreçler kolaydır. Çünkü koca projeyi değiştirmiyorsunuz o yüzden monolotiğe göre daha kolaydır.
+- Güvenilirlik ve dayanıklık açısından iyidir. Servisler birbirinden farklı farklı projelerle ayrılmış oldukları için böyle bir sorunla karşılaşmazsınız.
+- Up time oranları yüksektir.
+- Yatay ve dikey ölçeklendirme yapabilirsiniz.( Servisler ayrı olduğu için servis bazlı kopyalama yapabilirsiniz. )
+- Platform bağımsızdır. ( Bu mimarinin içerisindeki kullanmış olduğunuz servislerin dillerinin neyle yazılmış olduğu bağımsızdır.)
+- Üretkenlik artacaktır. ( Yetkinliğiniz C# ise eğer işe başlayan kişi PHP biliyorsa servisi o dille yazıp geliştirebilir. Herhangi bir sıkıntı olmaz.)
+  
 **SOA Dezavantajları nelerdir?**
+
+- Overload( Servisler kendi aralarında konuşurken SOAP gibi yapıları kullanırlar ve Enterprise kısmında yapılan validasyonlarda bu oldukça bir yük oluşturabilir.)
+- Yüksek Maliyet
+- Yüksek Bant Genişliği ( Oldukça büyük bir bant genişliğine ihtiyaç olabilir, bu da sunucuyu beraberinde getiriyor. )
 
 #### Microservices Architecture
 
