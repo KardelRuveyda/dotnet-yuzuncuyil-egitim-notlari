@@ -69,7 +69,7 @@ Client üzerinden gelen istekleri duruma göre sunucular arasında paylaşmayı 
 
 
 
-#### SOA Architecture
+#### SOA Architecture ( Service Roiented Architecture ) 
 
 Servislerin ayrı ayrı tasarlanıp bir yapı oluşturmasını sağlar. Monolitik mimaride bir proje içerisinde projenin içerisinde servislerimiz bulunuyordu. Bunların her biri projenin bir controller dosyası olarak geçiyordu. Bunları bunun içerisinden monolitik mimaride çıkarabilmek mümkün değildir. O yüzden ilk hedeflediği nokta **"Servisleri ayırmak!"**.
 
