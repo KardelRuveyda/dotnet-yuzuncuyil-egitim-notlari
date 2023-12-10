@@ -73,6 +73,9 @@ Client üzerinden gelen istekleri duruma göre sunucular arasında paylaşmayı 
 
 Servislerin ayrı ayrı tasarlanıp bir yapı oluşturmasını sağlar. Monolitik mimaride bir proje içerisinde projenin içerisinde servislerimiz bulunuyordu. Bunların her biri projenin bir controller dosyası olarak geçiyordu. Bunları bunun içerisinden monolitik mimaride çıkarabilmek mümkün değildir. O yüzden ilk hedeflediği nokta **"Servisleri ayırmak!"**.
 
+![image](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/assets/33912144/d0b6808a-16f0-451a-9164-eee815098a36)
+
+
 **Peki bunların kontrollerini nasıl yapacağım ?**
 
 - Özet olarak servislerin ayrı ayrı tasarlanıp bir yapı oluşturmasını sağlar.
