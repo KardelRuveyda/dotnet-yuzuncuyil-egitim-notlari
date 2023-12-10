@@ -40,6 +40,7 @@ _**E-Ticaret sitesi örneği üzerinden ilerleyelim;**_
 - Bu e-ticaret sitesi örneğinde birçok servisiniz olsun. (**ProductService**,**AccountingService**,**PaymentService** vb.). Bu servislerin içinden yoğun olarak trafik alan servis Productservice olsun. Kitlenmeye başlayan bu serviste veri tabanı sorgularına yetişemez oldunuz ve kaynaklar yetersiz gelmeye başladı. Bu durumda ölçeklendirmek gerekebilir. O nedenle bu kısımda sunucunun snapshotunu alıp kopyalama işlemi gerçekleştiriyorsunuz . Yani 8080 'de çalışıyorsa 8081 de çalışan bir sunucu daha oluşturuyorsunuz. Bu durumda ölçekleme gerçekleştikten sonra buradaki yük dağılımı nasıl gerçekleşir ?  Bu işlemi gerçekleştirmek için **LoadBalancer** yapısını kullanırsınız.
 
 **Pekala Load Balancer nedir ?**
+
 Client üzerinden gelen istekleri duruma göre sunucular arasında paylaşmayı hedefler. Benim yoğunluğum ProductService'de olmasına rağmen tüm sunucuyu dublicate ettim. Bu da monolithic mimarideki bir dezavantajdır. :(
 
 ![image](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/assets/33912144/c0993a88-91d9-4e69-b852-82d8f827579e)
