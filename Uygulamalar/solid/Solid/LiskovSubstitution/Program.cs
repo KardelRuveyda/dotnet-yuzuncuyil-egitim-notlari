@@ -1,18 +1,13 @@
-﻿#region Kodun çalıştırıldığı yer
-Renault renault = new Renault();
+#region Kodun çalıştırıldığı yer
 
-CalculateTripCost();
-#region Harcanan yakıt parasını hesaplayan fonksiyon 
-void CalculateTripCost()
+SendSMS();
+void SendSMS()
 {
-    var calculator = new FuelCostCalculator();
-    var cost = calculator.Calculate(new Renault());
-
-    Console.WriteLine($"Toplam Harcanan Para: {cost}");
-    Console.ReadLine();
+    var renault = new Renault();
+    renault.SendSMS();
 }
 #endregion
-#endregion
+
 #region Renault 
 public class Renault : BaseCar,ISmsSendable
 {
