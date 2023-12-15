@@ -17,7 +17,7 @@ Techcareer.net'in düzenlediği Cumhuriyet'in 100. Yılında Kadınlara Özel Ba
 - [x] [Dotnet Core Temelleri](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/blob/master/dotnetcore-basic.md)
 - [x] [Dotnet Core Best Practices](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/blob/master/dotnet-core-best-practices.md)
 - [x] [Monolith vs Microservices](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/blob/master/monolith-microservices.md)
-- [ ] [Katmanlı Mimari Yapısı-Projelerin Oluşturulması](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/blob/master/monolith-microservices.md)
+- [x] [N-Layer Proje Yapısı](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/blob/master/nlayer.md)
 
    
 -> [Alıştırmalar](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/blob/master/alistirmalar.md)
