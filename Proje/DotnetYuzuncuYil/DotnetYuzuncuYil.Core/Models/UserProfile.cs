@@ -15,9 +15,7 @@ namespace DotnetYuzuncuYil.Core
 
         //Foreign Key
         public int UserId { get; set; }
-
         //Birebir İlişki 
         public User User { get; set; }
-        public Team Team { get; set; }
     }
 }
