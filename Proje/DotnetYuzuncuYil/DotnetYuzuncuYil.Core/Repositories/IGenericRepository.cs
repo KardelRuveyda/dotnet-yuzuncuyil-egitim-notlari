@@ -12,7 +12,7 @@ namespace DotnetYuzuncuYil.Core.Repositories
         Task<T> GetByIdAsync(int id);
 
         //user.GetAll(s => s.UserName == "kardel"); ( Filtreleme yapmak için aşağıdaki expression parametresini function delege olarak tanımlamanız gerekir. )
-        IQueryable<T> GetAll(Expression<Func<T,bool>> expression);
+        IQueryable<T> GetAll();
 
         //user.Where(s=> s.userName == "kardel").ToList().OrderBy(); ( Veri tabanına gider sonra sıralama yapar. ) 
         //user.Where(s=> s.userName == "kardel").OrderBy(); ( Veri tabanına gitmeden ön bellekten sıralama yapar. ) 

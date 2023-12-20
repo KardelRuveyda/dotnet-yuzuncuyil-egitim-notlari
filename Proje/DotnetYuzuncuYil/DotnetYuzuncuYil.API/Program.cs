@@ -4,6 +4,10 @@ using DotnetYuzuncuYil.Core.UnitOfWorks;
 using DotnetYuzuncuYil.Repository;
 using DotnetYuzuncuYil.Repository.Repositories;
 using DotnetYuzuncuYil.Repository.UnitOfWorks;
+using DotnetYuzuncuYil.Service;
+using DotnetYuzuncuYil.Service.Mapping;
+using DotnetYuzuncuYil.Service.Validations;
+using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
@@ -17,7 +21,16 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IUnitOfWork,UnitOfWork>();
 builder.Services.AddScoped(typeof(IGenericRepository<>),typeof(GenericRepository<>));
+builder.Services.AddScoped(typeof(IService<>), typeof(Service<>));
+builder.Services.AddAutoMapper(typeof(MapProfile));
 
+builder.Services.AddControllers()
+    .AddFluentValidation(x =>
+    {
+        x.RegisterValidatorsFromAssemblyContaining<TeamDtoValidator>();
+        x.RegisterValidatorsFromAssemblyContaining<UserDtoValidator>();
+        x.RegisterValidatorsFromAssemblyContaining<UserProfileValidator>();
+    });
 
 //AppDbContext iþlemler
 builder.Services.AddDbContext<AppDbContext>(x =>
