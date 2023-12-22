@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DotnetYuzuncuYil.Core.Repositories
 {
-    public interface IUserProfile:IGenericRepository<UserProfile>
+    public interface IUserProfileRepository:IGenericRepository<UserProfile>
     {
     }
 }
