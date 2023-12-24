@@ -19,6 +19,8 @@ namespace DotnetYuzuncuYil.Service.Mapping
 
             //dto'dan entity'e çevirmek istersem;
             CreateMap<TeamDto, Team>();
+            CreateMap<UserDto, User>();
+            CreateMap<UserProfileDto, UserProfile>();
         }
     }
 }

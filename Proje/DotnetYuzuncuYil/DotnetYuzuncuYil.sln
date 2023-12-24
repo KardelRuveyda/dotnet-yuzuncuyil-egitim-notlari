@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotnetYuzuncuYil.Core", "DotnetYuzuncuYil.Core\DotnetYuzuncuYil.Core.csproj", "{3147A70A-B2D9-430A-8FBD-1168E696D9B6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotnetYuzuncuYil.Core", "DotnetYuzuncuYil.Core\DotnetYuzuncuYil.Core.csproj", "{3147A70A-B2D9-430A-8FBD-1168E696D9B6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotnetYuzuncuYil.Repository", "DotnetYuzuncuYil.Repository\DotnetYuzuncuYil.Repository.csproj", "{39BEA281-02EF-46FD-BFA1-31A844D6DFEF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotnetYuzuncuYil.Repository", "DotnetYuzuncuYil.Repository\DotnetYuzuncuYil.Repository.csproj", "{39BEA281-02EF-46FD-BFA1-31A844D6DFEF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotnetYuzuncuYil.Service", "DotnetYuzuncuYil.Service\DotnetYuzuncuYil.Service.csproj", "{7969DC58-80CB-4B41-8B9B-C31B69DFF20C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotnetYuzuncuYil.Service", "DotnetYuzuncuYil.Service\DotnetYuzuncuYil.Service.csproj", "{7969DC58-80CB-4B41-8B9B-C31B69DFF20C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotnetYuzuncuYil.API", "DotnetYuzuncuYil.API\DotnetYuzuncuYil.API.csproj", "{6A88DC32-DDF6-4577-843B-6D7BBDE8F362}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotnetYuzuncuYil.API", "DotnetYuzuncuYil.API\DotnetYuzuncuYil.API.csproj", "{6A88DC32-DDF6-4577-843B-6D7BBDE8F362}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotnetYuzuncuYil.Tests", "DotnetYuzuncuYil.Tests\DotnetYuzuncuYil.Tests.csproj", "{999C5283-2F57-4449-9858-A12C3C563993}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{6A88DC32-DDF6-4577-843B-6D7BBDE8F362}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6A88DC32-DDF6-4577-843B-6D7BBDE8F362}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6A88DC32-DDF6-4577-843B-6D7BBDE8F362}.Release|Any CPU.Build.0 = Release|Any CPU
+		{999C5283-2F57-4449-9858-A12C3C563993}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{999C5283-2F57-4449-9858-A12C3C563993}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{999C5283-2F57-4449-9858-A12C3C563993}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{999C5283-2F57-4449-9858-A12C3C563993}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
