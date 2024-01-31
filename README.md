@@ -21,7 +21,7 @@ Techcareer.net'in düzenlediği Cumhuriyet'in 100. Yılında Kadınlara Özel Ba
 - [x] [Core Katmanı Geliştirmeleri](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/blob/master/core.md)
 - [x] [Repository Katmanı Geliştirmeleri](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/blob/master/repository.md)
 - [x] [Servis Katmanı Geliştirmeleri](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/blob/master/service.md)
-- [ ] [API Katmanı Geliştirmeleri](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/blob/master/api.md)
+- [x] [API Katmanı Geliştirmeleri](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/blob/master/api.md)
 
    
 -> [Alıştırmalar](https://github.com/KardelRuveyda/dotnet-yuzuncuyil-egitim-notlari/blob/master/alistirmalar.md)
